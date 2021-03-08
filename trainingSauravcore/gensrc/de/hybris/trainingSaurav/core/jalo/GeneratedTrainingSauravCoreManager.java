@@ -1,13 +1,14 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Mar 1, 2021, 5:53:57 PM                     ---
+ * --- Generated at Mar 8, 2021, 2:26:23 PM                     ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
  */
 package de.hybris.trainingSaurav.core.jalo;
 
+import com.stackextend.training.core.jalo.HelloWorldCustomerJob;
 import de.hybris.platform.jalo.Item;
 import de.hybris.platform.jalo.Item.AttributeMode;
 import de.hybris.platform.jalo.JaloBusinessException;
@@ -20,9 +21,13 @@ import de.hybris.trainingSaurav.core.constants.TrainingSauravCoreConstants;
 import de.hybris.trainingSaurav.core.jalo.ApparelProduct;
 import de.hybris.trainingSaurav.core.jalo.ApparelSizeVariantProduct;
 import de.hybris.trainingSaurav.core.jalo.ApparelStyleVariantProduct;
+import de.hybris.trainingSaurav.core.jalo.Customer1;
 import de.hybris.trainingSaurav.core.jalo.ElectronicsColorVariantProduct;
 import de.hybris.trainingSaurav.core.jalo.ManufacturerDetails;
 import de.hybris.trainingSaurav.core.jalo.ManufacturerDetailsAuditEntry;
+import de.hybris.trainingSaurav.core.jalo.ManufacturerRemovalCronJob;
+import de.hybris.trainingSaurav.core.jalo.Saurav1;
+import de.hybris.trainingSaurav.core.jalo.TestMapEnumColl;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -128,6 +133,32 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 		return createApparelStyleVariantProduct( getSession().getSessionContext(), attributeValues );
 	}
 	
+	public Customer1 createCustomer1(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.CUSTOMER1 );
+			return (Customer1)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating Customer1 : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public Customer1 createCustomer1(final Map attributeValues)
+	{
+		return createCustomer1( getSession().getSessionContext(), attributeValues );
+	}
+	
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final SessionContext ctx, final Map attributeValues)
 	{
 		try
@@ -152,6 +183,32 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final Map attributeValues)
 	{
 		return createElectronicsColorVariantProduct( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public HelloWorldCustomerJob createHelloWorldJob(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.HELLOWORLDJOB );
+			return (HelloWorldCustomerJob)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating HelloWorldJob : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public HelloWorldCustomerJob createHelloWorldJob(final Map attributeValues)
+	{
+		return createHelloWorldJob( getSession().getSessionContext(), attributeValues );
 	}
 	
 	public ManufacturerDetails createManufacturerDetails(final SessionContext ctx, final Map attributeValues)
@@ -204,6 +261,84 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	public ManufacturerDetailsAuditEntry createManufacturerDetailsAuditEntry(final Map attributeValues)
 	{
 		return createManufacturerDetailsAuditEntry( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public ManufacturerRemovalCronJob createManufacturerRemovalCronJob(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.MANUFACTURERREMOVALCRONJOB );
+			return (ManufacturerRemovalCronJob)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating ManufacturerRemovalCronJob : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public ManufacturerRemovalCronJob createManufacturerRemovalCronJob(final Map attributeValues)
+	{
+		return createManufacturerRemovalCronJob( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public Saurav1 createSaurav1(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.SAURAV1 );
+			return (Saurav1)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating Saurav1 : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public Saurav1 createSaurav1(final Map attributeValues)
+	{
+		return createSaurav1( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public TestMapEnumColl createTestMapEnumColl(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.TESTMAPENUMCOLL );
+			return (TestMapEnumColl)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating TestMapEnumColl : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public TestMapEnumColl createTestMapEnumColl(final Map attributeValues)
+	{
+		return createTestMapEnumColl( getSession().getSessionContext(), attributeValues );
 	}
 	
 	@Override

@@ -8,6 +8,8 @@
         <collectiontype code="GenderList" elementtype="Gender" autocreate="true" generate="true" type="list"/>
         <collectiontype code="SwatchColorSet" elementtype="SwatchColorEnum" autocreate="true" generate="true"
                         type="set"/>
+        <collectiontype code="ColletectionTest" elementtype="ManufacturerDetails" generate="true" autocreate="true" type="set"/>
+
     </collectiontypes>
 
     <enumtypes>
@@ -25,7 +27,16 @@
             <value code="WHITE"/>
             <value code="YELLOW"/>
         </enumtype>
+
+        <enumtype code="Measure" autocreate="true" generate="true">
+            <value code="Long"></value>
+            <value code="Short"></value>
+        </enumtype>
     </enumtypes>
+
+    <maptypes>
+        <maptype code="MapManufacturer" argumenttype="java.lang.String" returntype="ManufacturerDetails"/>
+    </maptypes>
 
     <itemtypes>
 
@@ -53,6 +64,8 @@
             </attributes>
         </itemtype>
 
+
+
             <itemtype code="ManufacturerDetailsAuditEntry"  autocreate="true" generate="true">
                 <deployment table="ManufacturerDetailsAuditEntry" typecode="18000"/>
                 <attributes>
@@ -69,6 +82,92 @@
                         <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="rmvCreationTime" type="java.util.Date">
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+
+            <itemtype code="ManufacturerRemovalCronJob" extends="CronJob" autocreate="true" generate="true">
+                <attributes>
+                    <attribute qualifier="idRemove" type="java.lang.Integer">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>Integer.valueOf(10)</defaultvalue>
+                        <description>All ManufacturerDetails less than this value in days and whose name is not defined will be removed
+                        </description>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+
+            <itemtype code="HelloWorldJob" extends="CronJob"
+                      autocreate="true" generate="true"
+                      jaloclass="com.stackextend.training.core.jalo.HelloWorldCustomerJob">
+
+                <attributes>
+                    <attribute qualifier="firstName" type="java.lang.String">
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+
+            </itemtype>
+
+
+
+
+
+            <itemtype code="Customer1" autocreate="true" generate="true">
+                <deployment table="Customer1" typecode="25005"/>
+                <attributes>
+                    <attribute qualifier="customerId" type="java.lang.Integer">
+                        <modifiers read="true" write="true" unique="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="customerName" type="java.lang.String">
+                        <modifiers read="true" write="true" />
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="customerCreated" type="java.util.Date">
+                        <modifiers read="true" write="true" />
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="newCustomer" type="java.lang.Boolean">
+                        <modifiers read="true" write="true" />
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+
+
+
+
+
+            <itemtype code="TestMapEnumColl" generate="true" autocreate="true">
+                <deployment table="TestEnum" typecode="30000"/>
+                <attributes>
+                    <attribute qualifier="ColletionMan" type="ColletectionTest">
+                        <modifiers write="true" read="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="MapTEst" type="MapManufacturer">
+                        <modifiers write="true" read="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="EnumTest" type="Measure">
+                        <modifiers write="true" read="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="Saurav1" autocreate="true" generate="true">
+                <deployment table="Saurav1" typecode="30001"/>
+                <attributes>
+                    <attribute qualifier="name" type="java.lang.String">
+                        <modifiers read="true" write="true"/>
                         <persistence type="property"/>
                     </attribute>
                 </attributes>
@@ -131,6 +230,8 @@
                     </attribute>
                 </attributes>
             </itemtype>
+
+
         </typegroup>
 
         <typegroup name="Electronics">

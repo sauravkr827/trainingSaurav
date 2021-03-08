@@ -17,7 +17,9 @@ public class ManufacturerDetailsUtil
         ManufacturerDetailsModel model=modelService.create(ManufacturerDetailsModel.class);
 
         model.setId(command.getId());
-        model.setName(command.getName());
+        if(command.getName()!=null) {
+            model.setName(command.getName());
+        }
         model.setCity(command.getCity());
 
         return model;

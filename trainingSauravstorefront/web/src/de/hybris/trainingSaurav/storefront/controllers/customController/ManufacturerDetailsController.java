@@ -11,6 +11,7 @@ import de.hybris.trainingSaurav.storefront.util.ManufacturerDetailsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -102,8 +103,13 @@ public class ManufacturerDetailsController {
     public String saveModel(@ModelAttribute("model") ManufacturerDetailsCommand detailsModel, Model model) {
 
         ManufacturerDetailsModel manufacturerDetailsModel = manufacturerDetailsUtil.convertCommandToModel(detailsModel);
-
-        String msg = commandService.saveData(manufacturerDetailsModel);
+        String msg=null;
+        try {
+            msg = commandService.saveData(manufacturerDetailsModel);
+        }
+        catch (Exception e){
+            model.addAttribute("error","please enter alphanumeric value" +e.getCause());
+        }
         model.addAttribute("msg", msg);
 
         return ControllerConstants.Views.Pages.ManufacturerDetails.form;

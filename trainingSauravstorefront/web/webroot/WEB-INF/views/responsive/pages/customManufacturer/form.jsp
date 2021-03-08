@@ -15,7 +15,7 @@
     <title>Registration Form</title>
 </head>
 <body>
-<center>
+<font>
 <h1>Registration Form</h1>
     <hr>
     <br> <font color="#5f9ea0">${msg} </font>
@@ -40,6 +40,8 @@
     </table>
 
 </form:form>
+
+    <h3>${error}</h3>
 
    <%-- <h1>Opps...</h1>
     <table width = "100%" border = "1">

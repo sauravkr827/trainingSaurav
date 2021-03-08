@@ -165,6 +165,7 @@ public interface ControllerConstants
 				String form="pages/customManufacturer/form";
 				String remove="pages/customManufacturer/remove";
 				String update="pages/customManufacturer/update";
+				String customer="pages/customManufacturer/customerList";
 			}
 		}
 

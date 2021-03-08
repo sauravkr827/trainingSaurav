@@ -58,9 +58,9 @@
 
 	<!--ManufacturerDetails RemoveInterceptor  -->
 
-	<bean id="manufacturerDetailsRemoveInterceptor1" class="de.hybris.trainingSaurav.core.customeInterceptor.ManufacturerDetailsRemoveInterceptor"/>
+	<bean id="manufacturerDetailsRemoveInterceptor" class="de.hybris.trainingSaurav.core.customeInterceptor.ManufacturerDetailsRemoveInterceptor"/>
 	<bean id="manufactuterdetailsInterceptorMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
-		<property name="interceptor" ref="manufacturerDetailsRemoveInterceptor1"/>
+		<property name="interceptor" ref="manufacturerDetailsRemoveInterceptor"/>
 		<property name="typeCode" value="ManufacturerDetails"/>
 	</bean>
 
@@ -108,7 +108,30 @@
 	</bean>
 
 
+<!--	<bean id="customerPrepareInterceptor" class="de.hybris.trainingSaurav.core.customeInterceptor.Customer1PrepareInterceptor"/>
+	<bean id="customerPrepareMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+	<property name="interceptor" ref="customerPrepareInterceptor"/>
+		<property name="typeCode" value="Customer1"/>
+	</bean>-->
 
+	<bean id="customer1LoadInterceptor2" class="de.hybris.trainingSaurav.core.customeInterceptor.Customer1LoadInterceptor"/>
+	<bean id="customer1LoaderMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="customer1LoadInterceptor2"/>
+		<property name="typeCode" value="Customer1"/>
+	</bean>
+
+
+
+	<bean id="defaultCustomer1Dao" class="de.hybris.trainingSaurav.core.customDao.impl.DefaultCustomer1Dao">
+		<property name="flexibleSearchService" ref="defaultFlexibleSearchService"/>
+	</bean>
+
+	<bean id="defaultCustomer1Service" class="de.hybris.trainingSaurav.core.customService.impl.DefaultCustomer1Service">
+		<property name="defaultCustomer1Dao" ref="defaultCustomer1Dao"/>
+	</bean>
+
+
+	<bean id="helloWorldJob" class="de.hybris.trainingSaurav.core.job.HelloWorldCronJob" parent="abstractJobPerformable"/>
 
 
 	<bean id="commandService" class="de.hybris.trainingSaurav.core.customCommandService.impl.DefaultManufacturerDetailsCommandService">

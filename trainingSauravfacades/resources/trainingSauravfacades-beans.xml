@@ -18,4 +18,11 @@
 		<property name="city" type="String"/>
 		<property name="country" type="de.hybris.platform.commercefacades.user.data.CountryData"/>
 	</bean>
+
+	<bean class="de.hybris.trainingSaurav.facades.product.data.Customer1Data">
+		<property name="customerId" type="Integer"/>
+		<property name="customerName" type="String"/>
+		<property name="customerCreated" type="java.util.Date"/>
+		<property name="newCustomer" type="Boolean"/>
+	</bean>
 </beans>

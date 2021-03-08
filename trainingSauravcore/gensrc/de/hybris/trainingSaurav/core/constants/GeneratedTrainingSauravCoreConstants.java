@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Mar 1, 2021, 5:53:57 PM                     ---
+ * --- Generated at Mar 8, 2021, 2:26:23 PM                     ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -21,10 +21,16 @@ public class GeneratedTrainingSauravCoreConstants
 		public static final String APPARELPRODUCT = "ApparelProduct".intern();
 		public static final String APPARELSIZEVARIANTPRODUCT = "ApparelSizeVariantProduct".intern();
 		public static final String APPARELSTYLEVARIANTPRODUCT = "ApparelStyleVariantProduct".intern();
+		public static final String CUSTOMER1 = "Customer1".intern();
 		public static final String ELECTRONICSCOLORVARIANTPRODUCT = "ElectronicsColorVariantProduct".intern();
+		public static final String HELLOWORLDJOB = "HelloWorldJob".intern();
 		public static final String MANUFACTURERDETAILS = "ManufacturerDetails".intern();
 		public static final String MANUFACTURERDETAILSAUDITENTRY = "ManufacturerDetailsAuditEntry".intern();
+		public static final String MANUFACTURERREMOVALCRONJOB = "ManufacturerRemovalCronJob".intern();
+		public static final String MEASURE = "Measure".intern();
+		public static final String SAURAV1 = "Saurav1".intern();
 		public static final String SWATCHCOLORENUM = "SwatchColorEnum".intern();
+		public static final String TESTMAPENUMCOLL = "TestMapEnumColl".intern();
 	}
 	public static class Attributes
 	{
@@ -32,6 +38,11 @@ public class GeneratedTrainingSauravCoreConstants
 	}
 	public static class Enumerations
 	{
+		public static class Measure
+		{
+			public static final String LONG = "Long".intern();
+			public static final String SHORT = "Short".intern();
+		}
 		public static class SwatchColorEnum
 		{
 			public static final String BLACK = "BLACK".intern();

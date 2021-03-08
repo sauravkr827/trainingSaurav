@@ -35,6 +35,7 @@
 		<property name="countryDataConverter" ref="defaultCountryConverter"/>
 	</bean>
 
+
 	<alias name="manufacturerDetailsDataConverter" alias="manufacturDetailsDataConverter"/>
 	<bean id="manufacturerDetailsDataConverter" parent="abstractPopulatingConverter">
 		<property name="targetClass" value="de.hybris.trainingSaurav.facades.product.data.ManufacturerDetailsData"/>
@@ -45,6 +46,20 @@
 		</property>
 	</bean>
 
+   <bean  id= "customer1Populator" class="de.hybris.trainingSaurav.facades.customPopulator.Customer1Populator"/>
+	<bean id="customer1DataConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="de.hybris.trainingSaurav.facades.product.data.Customer1Data"/>
+		<property name="populators">
+			<list>
+				<ref bean="customer1Populator"/>
+			</list>
+		</property>
+	</bean>
+
+<bean id="defaultCustomer1Facade" class="de.hybris.trainingSaurav.facades.customFacade.impl.DefaultCustomer1Facade">
+	<property name="defaultCustomer1Service" ref="defaultCustomer1Service"/>
+	<property name="customer1DataConverter" ref="customer1DataConverter"/>
+</bean>
 	<bean id="defaultManufacturerDetailsFacade" class="de.hybris.trainingSaurav.facades.customFacade.impl.DefaultManufacturerDetailsFacade">
 		<property name="manufacturerDetailsService" ref="defaultManufacturerDetailsService"/>
 		<property name="manufacturerDetailsDataConverter" ref="manufacturerDetailsDataConverter"/>

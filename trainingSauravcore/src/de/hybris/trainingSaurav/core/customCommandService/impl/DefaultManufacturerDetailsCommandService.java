@@ -2,6 +2,7 @@ package de.hybris.trainingSaurav.core.customCommandService.impl;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import de.hybris.platform.servicelayer.interceptor.InterceptorException;
 import de.hybris.platform.servicelayer.interceptor.impl.InterceptorExecutionPolicy;
 import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.servicelayer.session.SessionService;
@@ -32,10 +33,10 @@ public class DefaultManufacturerDetailsCommandService implements ManufacturerDet
 
 
     @Override
-    public String saveData(ManufacturerDetailsModel manufacturerDetailsModel) {
+    public String saveData(ManufacturerDetailsModel manufacturerDetailsModel)throws InterceptorException {
 
         final Map<String, Object> params = ImmutableMap.of(InterceptorExecutionPolicy.DISABLED_INTERCEPTOR_TYPES,
-                ImmutableSet.of(InterceptorExecutionPolicy.InterceptorType.VALIDATE, InterceptorExecutionPolicy.InterceptorType.PREPARE));
+                ImmutableSet.of(InterceptorExecutionPolicy.InterceptorType.PREPARE,InterceptorExecutionPolicy.InterceptorType.VALIDATE));
                 sessionService.executeInLocalViewWithParams(params, new SessionExecutionBody()
 //        final Map<String, Object> params = ImmutableMap.of(InterceptorExecutionPolicy.DISABLED_INTERCEPTOR_BEANS, ImmutableSet.of("manufacturerDetailValidateInterceptor"));
 //        sessionService.executeInLocalViewWithParams(params, new SessionExecutionBody()
@@ -47,8 +48,7 @@ public class DefaultManufacturerDetailsCommandService implements ManufacturerDet
                 modelService.save(manufacturerDetailsModel);    // save successful - all validate interceptors are disabled
             }
         });
-                ManufacturerDetailsModel model = modelService.create(ManufacturerDetailsModel.class);
-        System.out.println(".............."+model.getName());
+
         return "Data inserted Succussfully";
     }
 
