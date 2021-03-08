@@ -23,7 +23,7 @@ public class DefaultCustomer1Dao implements Customer1Dao {
         Date now=new Date();
        /* String query="SELECT{"+ Customer1Model.PK+"} FROM {"+Customer1Model._TYPECODE+"} WHERE {"+Customer1Model.CREATIONTIME+"}";*/
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         Date date = new Date();
         String todate = dateFormat.format(date);
@@ -39,9 +39,10 @@ public class DefaultCustomer1Dao implements Customer1Dao {
 
         sb.append("SELECT {").append(Customer1Model.PK);
         sb.append("}FROM{").append(Customer1Model._TYPECODE).append("}");
-        sb.append("WHERE{").append(Customer1Model.CREATIONTIME);
-        sb.append("}<=?fromdate");
+        sb.append("WHERE{").append(Customer1Model.CUSTOMERCREATED);
+        sb.append("}<=fromdate");
          FlexibleSearchQuery fquery=new FlexibleSearchQuery(sb);
+        /* fquery.addQueryParameter("fromdate",fromdate)*/;
 
          SearchResult<Customer1Model> searchResult=getFlexibleSearchService().search(fquery);
 
