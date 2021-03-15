@@ -30,6 +30,13 @@
 		</property>
 	</bean>
 
+	<!-- Customer
+	<alias name="defaultCustomerPopulator" alias="customerPopulator"/>
+    <bean id="defaultCustomerPopulator"
+	-->
+	<alias name="customerIsNewPopulator" alias="customerPopulator"/>
+	<bean id="customerIsNewPopulator" class="de.hybris.trainingSaurav.facades.customPopulator.CustomerIsNewPopulator" parent="defaultCustomerPopulator"/>
+
 	<!-- ManufacturerDetails -->
 	<bean id="manufacturerDetailsPopulator" class="de.hybris.trainingSaurav.facades.customPopulator.ManufacturerDetailsPopulator">
 		<property name="countryDataConverter" ref="defaultCountryConverter"/>
@@ -59,6 +66,7 @@
 <bean id="defaultCustomer1Facade" class="de.hybris.trainingSaurav.facades.customFacade.impl.DefaultCustomer1Facade">
 	<property name="defaultCustomer1Service" ref="defaultCustomer1Service"/>
 	<property name="customer1DataConverter" ref="customer1DataConverter"/>
+	<property name="customerDataConverter" ref="defaultCustomerConverter"/>
 </bean>
 	<bean id="defaultManufacturerDetailsFacade" class="de.hybris.trainingSaurav.facades.customFacade.impl.DefaultManufacturerDetailsFacade">
 		<property name="manufacturerDetailsService" ref="defaultManufacturerDetailsService"/>

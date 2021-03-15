@@ -9,7 +9,7 @@
         <collectiontype code="SwatchColorSet" elementtype="SwatchColorEnum" autocreate="true" generate="true"
                         type="set"/>
         <collectiontype code="ColletectionTest" elementtype="ManufacturerDetails" generate="true" autocreate="true" type="set"/>
-
+        <collectiontype code="CollectionIndex" elementtype="java.lang.String" generate="true" autocreate="true" type="set"/>
     </collectiontypes>
 
     <enumtypes>
@@ -36,6 +36,7 @@
 
     <maptypes>
         <maptype code="MapManufacturer" argumenttype="java.lang.String" returntype="ManufacturerDetails"/>
+        <maptype code="MapIndex" argumenttype="java.lang.String" returntype="java.lang.String"/>
     </maptypes>
 
     <itemtypes>
@@ -172,6 +173,56 @@
                     </attribute>
                 </attributes>
             </itemtype>
+            <itemtype code="IndexTest" autocreate="true" generate="true">
+                <deployment table="IndexTest" typecode="30002"/>
+                <attributes>
+                    <attribute qualifier="country" type="CollectionIndex">
+                        <modifiers read="true" write="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="city" type="MapIndex">
+                        <modifiers read="true" write="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="Customer1RemovalCronJob" extends="CronJob" autocreate="true" generate="true">
+                <attributes>
+                    <attribute qualifier="xDaysOld" type="int">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>Integer.valueOf(10)</defaultvalue>
+                        <description>All Customer1 older than this value in days and whose price is not defined will be removed
+                        </description>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="CustomerIsNewCronJob" extends="CronJob" autocreate="true" generate="true">
+                <attributes>
+                    <attribute qualifier="noOfDaysToConsider" type="int">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>Integer.valueOf(0)</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+
+            <itemtype code="Customer" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="isNewCustomer" type="java.lang.Boolean">
+                        <modifiers read="true" write="true" />
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+
+
+
+
 
         </typegroup>
 

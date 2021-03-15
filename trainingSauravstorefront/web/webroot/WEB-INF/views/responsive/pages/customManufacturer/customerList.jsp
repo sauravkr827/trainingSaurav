@@ -11,19 +11,6 @@
 <head>
     <title>Title</title>
 
-    <style>
-        #newCustomer
-        {
-        alignment: left;
-        }
-        #oldCustomer
-        {
-            alignment: right;
-            position: absolute;
-            top:135px;
-            right:200px;
-        }
-    </style>
 </head>
 <body>
 <br>
@@ -31,7 +18,7 @@
 
 <hr>
 <br>
-
+<center>
 <table border="1px" id="newCustomer" width="300px" height="400px">
     <tr bgcolor="#5f9ea0">
         <th>CustomerID</th>
@@ -40,35 +27,16 @@
         <th>CustomerNewOrOld</th>
     </tr>
     <c:forEach items="${list}" var="dt">
-        <c:if test="${dt.newCustomer==true}">
         <tr align="center">
             <td>${dt.customerId}</td>
             <td>${dt.customerName}</td>
             <td>${dt.customerCreated}</td>
-            <td>New Customer</td>
-        </tr> </c:if>
+            <td bgcolor="#008b8b">New</td>
+        </tr>
     </c:forEach>
 </table>
+</center>
 
-
-
-    <table border="1px" id="oldCustomer"  width="300px" height="400px">
-        <tr bgcolor= #6495ed>
-            <th>CustomerID</th>
-            <th>CustomerName</th>
-            <th>CustomerCreated</th>
-            <th>CustomerNewOrOld</th>
-        </tr>
-        <c:forEach items="${list}" var="dt">
-            <c:if test="${dt.newCustomer==false}">
-                <tr align="center">
-                    <td>${dt.customerId}</td>
-                    <td>${dt.customerName}</td>
-                    <td>${dt.customerCreated}</td>
-                    <td>Old Customer</td>
-                </tr> </c:if>
-        </c:forEach>
-    </table>
 
 
 

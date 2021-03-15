@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Mar 8, 2021, 2:26:23 PM                     ---
+ * --- Generated at Mar 11, 2021, 11:13:39 AM                   ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -17,17 +17,23 @@ import de.hybris.platform.jalo.SessionContext;
 import de.hybris.platform.jalo.extension.Extension;
 import de.hybris.platform.jalo.type.ComposedType;
 import de.hybris.platform.jalo.type.JaloGenericCreationException;
+import de.hybris.platform.jalo.user.Customer;
+import de.hybris.platform.jalo.user.User;
 import de.hybris.trainingSaurav.core.constants.TrainingSauravCoreConstants;
 import de.hybris.trainingSaurav.core.jalo.ApparelProduct;
 import de.hybris.trainingSaurav.core.jalo.ApparelSizeVariantProduct;
 import de.hybris.trainingSaurav.core.jalo.ApparelStyleVariantProduct;
 import de.hybris.trainingSaurav.core.jalo.Customer1;
+import de.hybris.trainingSaurav.core.jalo.Customer1RemovalCronJob;
+import de.hybris.trainingSaurav.core.jalo.CustomerIsNewCronJob;
 import de.hybris.trainingSaurav.core.jalo.ElectronicsColorVariantProduct;
+import de.hybris.trainingSaurav.core.jalo.IndexTest;
 import de.hybris.trainingSaurav.core.jalo.ManufacturerDetails;
 import de.hybris.trainingSaurav.core.jalo.ManufacturerDetailsAuditEntry;
 import de.hybris.trainingSaurav.core.jalo.ManufacturerRemovalCronJob;
 import de.hybris.trainingSaurav.core.jalo.Saurav1;
 import de.hybris.trainingSaurav.core.jalo.TestMapEnumColl;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,6 +47,9 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	static
 	{
 		final Map<String, Map<String, AttributeMode>> ttmp = new HashMap();
+		Map<String, AttributeMode> tmp = new HashMap<String, AttributeMode>();
+		tmp.put("isNewCustomer", AttributeMode.INITIAL);
+		ttmp.put("de.hybris.platform.jalo.user.Customer", Collections.unmodifiableMap(tmp));
 		DEFAULT_INITIAL_ATTRIBUTES = ttmp;
 	}
 	@Override
@@ -159,6 +168,58 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 		return createCustomer1( getSession().getSessionContext(), attributeValues );
 	}
 	
+	public Customer1RemovalCronJob createCustomer1RemovalCronJob(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.CUSTOMER1REMOVALCRONJOB );
+			return (Customer1RemovalCronJob)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating Customer1RemovalCronJob : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public Customer1RemovalCronJob createCustomer1RemovalCronJob(final Map attributeValues)
+	{
+		return createCustomer1RemovalCronJob( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public CustomerIsNewCronJob createCustomerIsNewCronJob(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.CUSTOMERISNEWCRONJOB );
+			return (CustomerIsNewCronJob)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating CustomerIsNewCronJob : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public CustomerIsNewCronJob createCustomerIsNewCronJob(final Map attributeValues)
+	{
+		return createCustomerIsNewCronJob( getSession().getSessionContext(), attributeValues );
+	}
+	
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final SessionContext ctx, final Map attributeValues)
 	{
 		try
@@ -209,6 +270,32 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	public HelloWorldCustomerJob createHelloWorldJob(final Map attributeValues)
 	{
 		return createHelloWorldJob( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public IndexTest createIndexTest(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.INDEXTEST );
+			return (IndexTest)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating IndexTest : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public IndexTest createIndexTest(final Map attributeValues)
+	{
+		return createIndexTest( getSession().getSessionContext(), attributeValues );
 	}
 	
 	public ManufacturerDetails createManufacturerDetails(final SessionContext ctx, final Map attributeValues)
@@ -345,6 +432,79 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	public String getName()
 	{
 		return TrainingSauravCoreConstants.EXTENSIONNAME;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.isNewCustomer</code> attribute.
+	 * @return the isNewCustomer
+	 */
+	public Boolean isIsNewCustomer(final SessionContext ctx, final Customer item)
+	{
+		return (Boolean)item.getProperty( ctx, TrainingSauravCoreConstants.Attributes.Customer.ISNEWCUSTOMER);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.isNewCustomer</code> attribute.
+	 * @return the isNewCustomer
+	 */
+	public Boolean isIsNewCustomer(final Customer item)
+	{
+		return isIsNewCustomer( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.isNewCustomer</code> attribute. 
+	 * @return the isNewCustomer
+	 */
+	public boolean isIsNewCustomerAsPrimitive(final SessionContext ctx, final Customer item)
+	{
+		Boolean value = isIsNewCustomer( ctx,item );
+		return value != null ? value.booleanValue() : false;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.isNewCustomer</code> attribute. 
+	 * @return the isNewCustomer
+	 */
+	public boolean isIsNewCustomerAsPrimitive(final Customer item)
+	{
+		return isIsNewCustomerAsPrimitive( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.isNewCustomer</code> attribute. 
+	 * @param value the isNewCustomer
+	 */
+	public void setIsNewCustomer(final SessionContext ctx, final Customer item, final Boolean value)
+	{
+		item.setProperty(ctx, TrainingSauravCoreConstants.Attributes.Customer.ISNEWCUSTOMER,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.isNewCustomer</code> attribute. 
+	 * @param value the isNewCustomer
+	 */
+	public void setIsNewCustomer(final Customer item, final Boolean value)
+	{
+		setIsNewCustomer( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.isNewCustomer</code> attribute. 
+	 * @param value the isNewCustomer
+	 */
+	public void setIsNewCustomer(final SessionContext ctx, final Customer item, final boolean value)
+	{
+		setIsNewCustomer( ctx, item, Boolean.valueOf( value ) );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.isNewCustomer</code> attribute. 
+	 * @param value the isNewCustomer
+	 */
+	public void setIsNewCustomer(final Customer item, final boolean value)
+	{
+		setIsNewCustomer( getSession().getSessionContext(), item, value );
 	}
 	
 }

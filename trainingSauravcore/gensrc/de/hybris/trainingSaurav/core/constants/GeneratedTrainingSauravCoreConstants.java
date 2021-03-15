@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Mar 8, 2021, 2:26:23 PM                     ---
+ * --- Generated at Mar 11, 2021, 11:13:39 AM                   ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -22,8 +22,11 @@ public class GeneratedTrainingSauravCoreConstants
 		public static final String APPARELSIZEVARIANTPRODUCT = "ApparelSizeVariantProduct".intern();
 		public static final String APPARELSTYLEVARIANTPRODUCT = "ApparelStyleVariantProduct".intern();
 		public static final String CUSTOMER1 = "Customer1".intern();
+		public static final String CUSTOMER1REMOVALCRONJOB = "Customer1RemovalCronJob".intern();
+		public static final String CUSTOMERISNEWCRONJOB = "CustomerIsNewCronJob".intern();
 		public static final String ELECTRONICSCOLORVARIANTPRODUCT = "ElectronicsColorVariantProduct".intern();
 		public static final String HELLOWORLDJOB = "HelloWorldJob".intern();
+		public static final String INDEXTEST = "IndexTest".intern();
 		public static final String MANUFACTURERDETAILS = "ManufacturerDetails".intern();
 		public static final String MANUFACTURERDETAILSAUDITENTRY = "ManufacturerDetailsAuditEntry".intern();
 		public static final String MANUFACTURERREMOVALCRONJOB = "ManufacturerRemovalCronJob".intern();
@@ -34,7 +37,10 @@ public class GeneratedTrainingSauravCoreConstants
 	}
 	public static class Attributes
 	{
-		// no constants defined.
+		public static class Customer
+		{
+			public static final String ISNEWCUSTOMER = "isNewCustomer".intern();
+		}
 	}
 	public static class Enumerations
 	{

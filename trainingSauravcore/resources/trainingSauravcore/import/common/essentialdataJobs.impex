@@ -1,0 +1,7 @@
+$siteUid=electronics
+INSERT_UPDATE Customer1RemovalCronJob;code[unique=true];job(code);xDaysOld;sessionLanguage(isocode);sessionCurrency(isocode)
+                                    ;customer1RemovalCronJob;customer1RemovalJob;5;en;EUR
+
+INSERT_UPDATE Trigger;cronjob(code)[unique=true];active;cronExpression
+#Fires at after 10 everyday
+                     ;customer1RemovalCronJob;true;0 15 11 * * ?

@@ -114,12 +114,35 @@
 		<property name="typeCode" value="Customer1"/>
 	</bean>-->
 
-	<bean id="customer1LoadInterceptor2" class="de.hybris.trainingSaurav.core.customeInterceptor.Customer1LoadInterceptor"/>
+<!--	<bean id="customer1LoadInterceptor2" class="de.hybris.trainingSaurav.core.customeInterceptor.Customer1LoadInterceptor"/>
 	<bean id="customer1LoaderMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
 		<property name="interceptor" ref="customer1LoadInterceptor2"/>
 		<property name="typeCode" value="Customer1"/>
+	</bean>-->
+
+
+
+	<!--  <bean id="customProductsDao" class="org.training.core.dao.impl.CustomProductsDAOImpl">
+        <property name="flexibleSearchService" ref="flexibleSearchService"/>
+    </bean>
+
+    <bean id="productsRemovalJob" class="org.training.core.jobs.ProductsRemovalJob"
+        parent="abstractJobPerformable">
+        <property name="customProductsDao" ref="customProductsDao" />
+        <property name="modelService" ref="modelService" />
+        <property name="indexerService" ref="indexerService" />
+        <property name="facetSearchConfigService" ref="facetSearchConfigService" />
+        <property name="baseSiteService" ref="baseSiteService"/>
+    </bean> -->
+
+	<bean id="customer1RemovalJob" class="de.hybris.trainingSaurav.core.job.Customer1RemovalJob" parent="abstractJobPerformable">
+		<property name="modelService" ref="modelService"/>
+		<property name="customer1Dao" ref="defaultCustomer1Dao"/>
 	</bean>
 
+	<bean id="customerIsNewJob" class="de.hybris.trainingSaurav.core.job.CustomerIsNewJob" parent="abstractJobPerformable">
+		<property name="defaultCustomer1Service" ref="defaultCustomer1Service"/>
+	</bean>
 
 
 	<bean id="defaultCustomer1Dao" class="de.hybris.trainingSaurav.core.customDao.impl.DefaultCustomer1Dao">
@@ -128,6 +151,7 @@
 
 	<bean id="defaultCustomer1Service" class="de.hybris.trainingSaurav.core.customService.impl.DefaultCustomer1Service">
 		<property name="defaultCustomer1Dao" ref="defaultCustomer1Dao"/>
+		<property name="modelService" ref="modelService"/>
 	</bean>
 
 

@@ -1,3 +1,4 @@
+/*
 package de.hybris.trainingSaurav.core.customeInterceptor;
 
 import de.hybris.platform.servicelayer.interceptor.InterceptorContext;
@@ -21,3 +22,4 @@ public class Customer1LoadInterceptor implements LoadInterceptor<Customer1Model>
         defaultCustomer1Service.checkOldAndNew(model);
     }
 }
+*/

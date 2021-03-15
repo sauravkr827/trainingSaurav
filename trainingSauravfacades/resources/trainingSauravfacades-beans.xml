@@ -25,4 +25,9 @@
 		<property name="customerCreated" type="java.util.Date"/>
 		<property name="newCustomer" type="Boolean"/>
 	</bean>
+	
+	
+	<bean class="de.hybris.platform.commercefacades.user.data.CustomerData">
+		<property name="isNewCustomer" type="Boolean"/>
+	</bean>
 </beans>
