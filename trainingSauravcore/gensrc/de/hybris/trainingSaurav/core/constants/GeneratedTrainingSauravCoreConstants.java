@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Mar 11, 2021, 11:13:39 AM                   ---
+ * --- Generated at Mar 22, 2021, 5:40:41 PM                    ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -24,8 +24,8 @@ public class GeneratedTrainingSauravCoreConstants
 		public static final String CUSTOMER1 = "Customer1".intern();
 		public static final String CUSTOMER1REMOVALCRONJOB = "Customer1RemovalCronJob".intern();
 		public static final String CUSTOMERISNEWCRONJOB = "CustomerIsNewCronJob".intern();
+		public static final String CUSTOMPAGE = "CustomPage".intern();
 		public static final String ELECTRONICSCOLORVARIANTPRODUCT = "ElectronicsColorVariantProduct".intern();
-		public static final String HELLOWORLDJOB = "HelloWorldJob".intern();
 		public static final String INDEXTEST = "IndexTest".intern();
 		public static final String MANUFACTURERDETAILS = "ManufacturerDetails".intern();
 		public static final String MANUFACTURERDETAILSAUDITENTRY = "ManufacturerDetailsAuditEntry".intern();
@@ -39,6 +39,7 @@ public class GeneratedTrainingSauravCoreConstants
 	{
 		public static class Customer
 		{
+			public static final String ISNEWBUSSINESSUSER = "isNewBussinessUser".intern();
 			public static final String ISNEWCUSTOMER = "isNewCustomer".intern();
 		}
 	}

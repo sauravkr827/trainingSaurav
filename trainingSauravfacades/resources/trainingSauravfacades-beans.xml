@@ -29,5 +29,15 @@
 	
 	<bean class="de.hybris.platform.commercefacades.user.data.CustomerData">
 		<property name="isNewCustomer" type="Boolean"/>
+		<property name="isNewBussinessUser" type="Boolean"/>
+	</bean>
+
+
+	<bean class="de.hybris.trainingSaurav.facades.product.data.CustomRegisterData">
+		<property name="isNewBussinessUser" type="Boolean"/>
+	</bean>
+
+	<bean class="de.hybris.platform.commercefacades.user.data.RegisterData">
+		<property name="isNewBussinessUser" type="Boolean"/>
 	</bean>
 </beans>

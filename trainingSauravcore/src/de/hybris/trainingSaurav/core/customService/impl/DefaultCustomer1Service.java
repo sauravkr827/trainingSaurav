@@ -5,7 +5,9 @@ import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.trainingSaurav.core.customDao.impl.DefaultCustomer1Dao;
 import de.hybris.trainingSaurav.core.customService.Customer1Service;
 import de.hybris.trainingSaurav.core.model.Customer1Model;
+import de.hybris.trainingSaurav.core.model.CustomerIsNewCronJobModel;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.util.CollectionUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -28,8 +30,11 @@ public class DefaultCustomer1Service implements Customer1Service {
 
     @Override
     public List<CustomerModel> getListOfCustomerFromExisting()
+
+
     {
         return defaultCustomer1Dao.getListOfCustomerFromExisting();
+
     }
 
 
@@ -60,6 +65,28 @@ public class DefaultCustomer1Service implements Customer1Service {
 
          return modelList;
 
+    }
+
+    @Override
+    public List<CustomerModel> checkHistoryOfCronJob(Date date) {
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String preDate = dateFormat.format(date);
+
+        List<CustomerModel> customerModelList=defaultCustomer1Dao.checkHistoryOfCronJob(preDate);
+
+        if(!CollectionUtils.isEmpty(customerModelList))
+        {
+            for (CustomerModel c:customerModelList)
+            {
+                c.setIsNewCustomer(true);
+                modelService.save(c);
+
+            }
+        }
+
+
+        return customerModelList;
     }
 
 

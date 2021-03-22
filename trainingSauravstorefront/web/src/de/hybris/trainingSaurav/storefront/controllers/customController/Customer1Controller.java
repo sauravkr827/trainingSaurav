@@ -1,6 +1,9 @@
 package de.hybris.trainingSaurav.storefront.controllers.customController;
 
 
+import de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractPageController;
+import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
+import de.hybris.platform.cms2.model.pages.ContentPageModel;
 import de.hybris.platform.commercefacades.user.data.CustomerData;
 import de.hybris.trainingSaurav.facades.customFacade.impl.DefaultCustomer1Facade;
 import de.hybris.trainingSaurav.facades.product.data.Customer1Data;
@@ -17,7 +20,7 @@ import static de.hybris.platform.servicelayer.util.ServicesUtil.validateParamete
 
 @Controller
 @RequestMapping("/")
-public class Customer1Controller
+public class Customer1Controller extends AbstractPageController
 {
     @Autowired
     DefaultCustomer1Facade defaultCustomer1Facade;
@@ -47,4 +50,48 @@ public class Customer1Controller
         return ControllerConstants.Views.Pages.ManufacturerDetails.customerList;
 
     }
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+public String test(Model model)
+{
+
+    model.addAttribute("test","Got it");
+    final String test="test";
+
+    try
+    {
+
+        final ContentPageModel accountPage=getContentPageForLabelOrId(test);
+
+        storeCmsPageInModel(model,accountPage);
+        setUpMetaDataForContentPage(model,accountPage);
+
+    } catch (CMSItemNotFoundException e) {
+        e.printStackTrace();
+    }
+    return getViewForPage(model);
+
+}
+
+    @RequestMapping(value = "/test1",method = RequestMethod.GET)
+    public String test1(Model model)
+    {
+
+        model.addAttribute("test","Got it");
+        final String test="test";
+
+        try
+        {
+
+            final ContentPageModel accountPage=getContentPageForLabelOrId(test);
+
+            storeCmsPageInModel(model,accountPage);
+            setUpMetaDataForContentPage(model,accountPage);
+
+        } catch (CMSItemNotFoundException e) {
+            e.printStackTrace();
+        }
+        return getViewForPage(model);
+
+    }
+
 }

@@ -14,4 +14,6 @@ public interface Customer1Dao
     List<CustomerModel> getOldRegCustomers(String preDate);
 
     List<CustomerModel>  getListOfCustomerFromExisting();
+
+    public List<CustomerModel> checkHistoryOfCronJob(String date);
 }

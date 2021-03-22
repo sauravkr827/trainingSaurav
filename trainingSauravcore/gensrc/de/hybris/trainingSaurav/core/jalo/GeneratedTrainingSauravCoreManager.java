@@ -1,14 +1,13 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Mar 11, 2021, 11:13:39 AM                   ---
+ * --- Generated at Mar 22, 2021, 5:40:41 PM                    ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
  */
 package de.hybris.trainingSaurav.core.jalo;
 
-import com.stackextend.training.core.jalo.HelloWorldCustomerJob;
 import de.hybris.platform.jalo.Item;
 import de.hybris.platform.jalo.Item.AttributeMode;
 import de.hybris.platform.jalo.JaloBusinessException;
@@ -23,6 +22,7 @@ import de.hybris.trainingSaurav.core.constants.TrainingSauravCoreConstants;
 import de.hybris.trainingSaurav.core.jalo.ApparelProduct;
 import de.hybris.trainingSaurav.core.jalo.ApparelSizeVariantProduct;
 import de.hybris.trainingSaurav.core.jalo.ApparelStyleVariantProduct;
+import de.hybris.trainingSaurav.core.jalo.CustomPage;
 import de.hybris.trainingSaurav.core.jalo.Customer1;
 import de.hybris.trainingSaurav.core.jalo.Customer1RemovalCronJob;
 import de.hybris.trainingSaurav.core.jalo.CustomerIsNewCronJob;
@@ -49,6 +49,7 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 		final Map<String, Map<String, AttributeMode>> ttmp = new HashMap();
 		Map<String, AttributeMode> tmp = new HashMap<String, AttributeMode>();
 		tmp.put("isNewCustomer", AttributeMode.INITIAL);
+		tmp.put("isNewBussinessUser", AttributeMode.INITIAL);
 		ttmp.put("de.hybris.platform.jalo.user.Customer", Collections.unmodifiableMap(tmp));
 		DEFAULT_INITIAL_ATTRIBUTES = ttmp;
 	}
@@ -220,6 +221,32 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 		return createCustomerIsNewCronJob( getSession().getSessionContext(), attributeValues );
 	}
 	
+	public CustomPage createCustomPage(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.CUSTOMPAGE );
+			return (CustomPage)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating CustomPage : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public CustomPage createCustomPage(final Map attributeValues)
+	{
+		return createCustomPage( getSession().getSessionContext(), attributeValues );
+	}
+	
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final SessionContext ctx, final Map attributeValues)
 	{
 		try
@@ -244,32 +271,6 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final Map attributeValues)
 	{
 		return createElectronicsColorVariantProduct( getSession().getSessionContext(), attributeValues );
-	}
-	
-	public HelloWorldCustomerJob createHelloWorldJob(final SessionContext ctx, final Map attributeValues)
-	{
-		try
-		{
-			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingSauravCoreConstants.TC.HELLOWORLDJOB );
-			return (HelloWorldCustomerJob)type.newInstance( ctx, attributeValues );
-		}
-		catch( JaloGenericCreationException e)
-		{
-			final Throwable cause = e.getCause();
-			throw (cause instanceof RuntimeException ?
-			(RuntimeException)cause
-			:
-			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
-		}
-		catch( JaloBusinessException e )
-		{
-			throw new JaloSystemException( e ,"error creating HelloWorldJob : "+e.getMessage(), 0 );
-		}
-	}
-	
-	public HelloWorldCustomerJob createHelloWorldJob(final Map attributeValues)
-	{
-		return createHelloWorldJob( getSession().getSessionContext(), attributeValues );
 	}
 	
 	public IndexTest createIndexTest(final SessionContext ctx, final Map attributeValues)
@@ -432,6 +433,79 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	public String getName()
 	{
 		return TrainingSauravCoreConstants.EXTENSIONNAME;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.isNewBussinessUser</code> attribute.
+	 * @return the isNewBussinessUser
+	 */
+	public Boolean isIsNewBussinessUser(final SessionContext ctx, final Customer item)
+	{
+		return (Boolean)item.getProperty( ctx, TrainingSauravCoreConstants.Attributes.Customer.ISNEWBUSSINESSUSER);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.isNewBussinessUser</code> attribute.
+	 * @return the isNewBussinessUser
+	 */
+	public Boolean isIsNewBussinessUser(final Customer item)
+	{
+		return isIsNewBussinessUser( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.isNewBussinessUser</code> attribute. 
+	 * @return the isNewBussinessUser
+	 */
+	public boolean isIsNewBussinessUserAsPrimitive(final SessionContext ctx, final Customer item)
+	{
+		Boolean value = isIsNewBussinessUser( ctx,item );
+		return value != null ? value.booleanValue() : false;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.isNewBussinessUser</code> attribute. 
+	 * @return the isNewBussinessUser
+	 */
+	public boolean isIsNewBussinessUserAsPrimitive(final Customer item)
+	{
+		return isIsNewBussinessUserAsPrimitive( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.isNewBussinessUser</code> attribute. 
+	 * @param value the isNewBussinessUser
+	 */
+	public void setIsNewBussinessUser(final SessionContext ctx, final Customer item, final Boolean value)
+	{
+		item.setProperty(ctx, TrainingSauravCoreConstants.Attributes.Customer.ISNEWBUSSINESSUSER,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.isNewBussinessUser</code> attribute. 
+	 * @param value the isNewBussinessUser
+	 */
+	public void setIsNewBussinessUser(final Customer item, final Boolean value)
+	{
+		setIsNewBussinessUser( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.isNewBussinessUser</code> attribute. 
+	 * @param value the isNewBussinessUser
+	 */
+	public void setIsNewBussinessUser(final SessionContext ctx, final Customer item, final boolean value)
+	{
+		setIsNewBussinessUser( ctx, item, Boolean.valueOf( value ) );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.isNewBussinessUser</code> attribute. 
+	 * @param value the isNewBussinessUser
+	 */
+	public void setIsNewBussinessUser(final Customer item, final boolean value)
+	{
+		setIsNewBussinessUser( getSession().getSessionContext(), item, value );
 	}
 	
 	/**

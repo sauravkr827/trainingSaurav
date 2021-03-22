@@ -131,6 +131,28 @@ public class DefaultCustomer1Dao implements Customer1Dao {
         return searchResult.getResult();
     }
 
+    @Override
+    public List<CustomerModel> checkHistoryOfCronJob(String date) {
+
+        StringBuilder sb=new StringBuilder();
+        sb.append("SELECT {").append(CustomerModel.PK);
+        sb.append("} FROM {").append(CustomerModel._TYPECODE).append("}");
+        sb.append(" WHERE {").append(CustomerModel.MODIFIEDTIME);
+        sb.append("} >= ?date");
+
+        FlexibleSearchQuery fquery=new FlexibleSearchQuery(sb);
+        fquery.addQueryParameter("date",date);
+
+        SearchResult<CustomerModel> searchResult=getFlexibleSearchService().search(fquery);
+        validateParameterNotNull(searchResult, "No list of customer founded");
+
+
+        LOG.info("No Of New Registered Customer==========="+searchResult.getCount());
+
+        return searchResult.getResult();
+
+    }
+
 
     @Override
     public Customer1Model getCreationDate(int customerId) {

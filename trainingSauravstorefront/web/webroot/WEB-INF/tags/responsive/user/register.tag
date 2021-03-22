@@ -8,6 +8,8 @@
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/responsive/template"%>
+<%@ taglib prefix="q" uri="http://hybris.com/tld/htmlmeta" %>
+
 
 <spring:htmlEscape defaultHtmlEscape="true" />
 
@@ -20,7 +22,7 @@
 	<spring:theme code="register.description" />
 </p>
 
-<form:form method="post" modelAttribute="registerForm" action="${action}">
+<form:form method="post" modelAttribute="customRegisterForm" action="${action}">
 	<formElement:formSelectBoxDefaultEnabled idKey="register.title"
 		labelKey="register.title" selectCSSClass="form-control"
 		path="titleCode" mandatory="true" skipBlank="false"
@@ -40,21 +42,23 @@
 		labelKey="register.checkPwd" path="checkPwd" inputCSS="form-control"
 		mandatory="true" />
 
+	<form:checkbox path="newBussinessUser" label="IsNewBusinessUser" class="q"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<form:errors path="newBussinessUser" cssStyle="color: darkred"></form:errors>
+
+
     <c:if test="${ not empty consentTemplateData }">
         <form:hidden path="consentForm.consentTemplateId" value="${consentTemplateData.id}" />
         <form:hidden path="consentForm.consentTemplateVersion" value="${consentTemplateData.version}" />
         <div class="checkbox">
             <label class="control-label uncased">
-                <form:checkbox path="consentForm.consentGiven" disabled="true"/>
+                <form:checkbox path="consentForm.consentGiven" disabled="true" class="q"/>
                 <c:out value="${consentTemplateData.description}" />
-
-            </label>
+			</label>
         </div>
 		<div class="help-block">
 			<spring:theme code="registration.consent.link" />
 		</div>
-
-    </c:if>
+	</c:if>
 
 	<spring:theme code="register.termsConditions" arguments="${getTermsAndConditionsUrl}" var="termsConditionsHtml" htmlEscape="false" />
 	<template:errorSpanField path="termsCheck">
@@ -67,11 +71,11 @@
 	</template:errorSpanField>
 
 	<input type="hidden" id="recaptchaChallangeAnswered"
-		value="${fn:escapeXml(requestScope.recaptchaChallangeAnswered)}" />
+		value="${fn:escapeXml(requestScope.recaptchaChallangeAnswered)}" id="submit" />
 	<div class="form_field-elements control-group js-recaptcha-captchaaddon"></div>
 	<div class="form-actions clearfix">
 		<ycommerce:testId code="register_Register_button">
-			<button type="submit" class="btn btn-default btn-block" disabled="disabled">
+			<button type="submit" class="btn btn-default btn-block" disabled="disabled" id="sub">
 				<spring:theme code='${actionNameKey}' />
 			</button>
 		</ycommerce:testId>

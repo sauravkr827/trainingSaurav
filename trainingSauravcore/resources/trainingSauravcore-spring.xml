@@ -154,10 +154,6 @@
 		<property name="modelService" ref="modelService"/>
 	</bean>
 
-
-	<bean id="helloWorldJob" class="de.hybris.trainingSaurav.core.job.HelloWorldCronJob" parent="abstractJobPerformable"/>
-
-
 	<bean id="commandService" class="de.hybris.trainingSaurav.core.customCommandService.impl.DefaultManufacturerDetailsCommandService">
 		<property name="modelService" ref="modelService"/>
 	</bean>

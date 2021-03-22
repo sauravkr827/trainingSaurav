@@ -20,6 +20,8 @@
 	</div>
 	
 	<order:giftCoupons giftCoupons="${giftCoupons}"/>
+
+
 		
 	<c:if test="${not empty guestRegisterForm}">
 		<div class="checkout__new-account">

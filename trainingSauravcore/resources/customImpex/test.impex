@@ -1,0 +1,31 @@
+$contentCatalog=electronicsContentCatalog
+$catalogVersion=Staged
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=$catalogVersion])[default=$contentCatalog:$catalogVersion]
+
+
+INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;active[default=true]
+                          ;;Test1PageTemplate;Test1 Page Template;custom/test;false
+
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='Test1PageTemplate'];validComponentTypes(code);compTypeGroup(code)
+                             ;SiteLogo;;;logo
+                             ;HeaderLinks;;;headerlinks
+                             ;TopHeaderSlot;;;wide
+                             ;BottomHeaderSlot;;;wide
+                             ;SearchBox;;SearchBoxComponent;searchbox
+                             ;MiniCart;;;minicart
+                             ;NavigationBar;;;navigation
+                             ;Footer;;;footer;
+
+
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='Test1PageTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+                                    ;;SiteLogo-Test1;SiteLogo;;SiteLogoSlot;true
+                                    ;;HeaderLinks-Test1;HeaderLinks;;HeaderLinksSlot;true
+                                    ;;TopHeader-Test1;TopHeaderSlot;;TopHeaderSlot;true
+                                    ;;BottomHeader-Test1;BottomHeaderSlot;;BottomHeaderSlot;true
+                                    ;;SearchBox-Test1;SearchBox;;SearchBoxSlot;true
+                                    ;;MiniCart-Test1;MiniCart;;MiniCartSlot;true
+                                    ;;NavigationBar-Test1;NavigationBar;;NavigationBarSlot;true
+                                    ;;Footer-Test1;Footer;;FooterSlot;true
+
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)[default='ContentPageModel__function_preview']
+                         ;;test1;Test1 Found Page;Test1PageTemplate;/test

@@ -11,6 +11,5 @@ public class CustomerIsNewPopulator extends CustomerPopulator
         super.populate(source, target);
 
         target.setIsNewCustomer(source.getIsNewCustomer());
-
     }
 }

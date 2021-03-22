@@ -37,6 +37,25 @@
 	<alias name="customerIsNewPopulator" alias="customerPopulator"/>
 	<bean id="customerIsNewPopulator" class="de.hybris.trainingSaurav.facades.customPopulator.CustomerIsNewPopulator" parent="defaultCustomerPopulator"/>
 
+
+
+
+	<bean id="isNewBussUserPopulator" class="de.hybris.trainingSaurav.facades.customPopulator.IsNewBussinessUserPopulator"/>
+
+	<bean parent="modifyPopulatorList">
+		<property name="list" ref="customerConverter"/>
+		<property name="add" ref="isNewBussUserPopulator"/>
+	</bean>
+
+
+	<alias name="defaultCustomCustomerFacade" alias="customCustomerFacade"/>
+	<bean id="defaultCustomCustomerFacade" class="de.hybris.trainingSaurav.facades.customFacade.impl.DefaultCustomCustomerFacade" parent="defaultCustomerFacade">
+	</bean>
+
+
+
+
+
 	<!-- ManufacturerDetails -->
 	<bean id="manufacturerDetailsPopulator" class="de.hybris.trainingSaurav.facades.customPopulator.ManufacturerDetailsPopulator">
 		<property name="countryDataConverter" ref="defaultCountryConverter"/>
