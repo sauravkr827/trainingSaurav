@@ -87,9 +87,12 @@
 	<property name="customer1DataConverter" ref="customer1DataConverter"/>
 	<property name="customerDataConverter" ref="defaultCustomerConverter"/>
 </bean>
-	<bean id="defaultManufacturerDetailsFacade" class="de.hybris.trainingSaurav.facades.customFacade.impl.DefaultManufacturerDetailsFacade">
+	<alias name="defaultManufacturerDetailsFacade" alias="productFacade"/>
+	<bean id="defaultManufacturerDetailsFacade" class="de.hybris.trainingSaurav.facades.customFacade.impl.DefaultManufacturerDetailsFacade"
+		  parent="defaultProductFacade">
 		<property name="manufacturerDetailsService" ref="defaultManufacturerDetailsService"/>
 		<property name="manufacturerDetailsDataConverter" ref="manufacturerDetailsDataConverter"/>
+
 	</bean>
 
 	<alias name="acceleratorVariantOptionDataConverter" alias="variantOptionDataConverter"/> 

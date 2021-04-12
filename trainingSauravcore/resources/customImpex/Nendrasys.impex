@@ -1,0 +1,20 @@
+$contentCatalog=electronicsContentCatalog
+$contentCatalogName=Electronics Content Catalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$lang=en
+
+
+INSERT_UPDATE NendrasysComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;offer[lang=$lang];;
+                                ;;NendrasysComponent;Latest Products Component;NendrasysComponent;Buy one Get One Free;;
+
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='LatestProductsTemplate'];validComponentTypes(code);compTypeGroup(code)
+                             ;NendrasysSlotName;;NendrasysComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
+                         ;;NendrasysContentSlot;Latest Product Slot;true;NendrasysComponent
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='latestProductsPage'];contentSlot(uid,$contentCV)[unique=true]
+                                ;;Nendrasysslotforpage;offer;;NendrasysContentSlot
+
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='LatestProductsTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+                                    ;;NendrasysComponent;offer1;;NendrasysContentSlot;true

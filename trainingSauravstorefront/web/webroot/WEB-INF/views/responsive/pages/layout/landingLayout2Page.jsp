@@ -24,15 +24,12 @@
             </cms:pageSlot>
         </div>
     </div>
-    <div class="welcomeInfo">
-    <cms:pageSlot position="welcomeInfo" var="feature">
-        <cms:component component="${feature}" />
-    </cms:pageSlot>
-    </div>
+
 
     <cms:pageSlot position="Section3" var="feature" element="div" class="row no-margin" >
         <cms:component component="${feature}" element="div" class="no-space yComponentWrapper"/>
     </cms:pageSlot>
+
 
 
     <cms:pageSlot position="Section4" var="feature" element="div" class="row no-margin">
@@ -41,6 +38,9 @@
 
     <cms:pageSlot position="Section5" var="feature" element="div">
         <cms:component component="${feature}" element="div" class="yComponentWrapper"/>
+    </cms:pageSlot>
+    <cms:pageSlot position="latestProductSlotName" var="feature" element="div" class="span-24 section5 cms_disp-img_slot">
+        <cms:component component="${feature}" />
     </cms:pageSlot>
 
 </template:page>

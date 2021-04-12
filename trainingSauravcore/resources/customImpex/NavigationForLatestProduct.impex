@@ -1,0 +1,17 @@
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+                               ;LatestProductsNavNode;;LatestProductsNavNode;ElectronicsCategoryNavNode;;LatestProductsNavNode
+
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+                                ;LatestProductsNavNodeEntry;;LatestProductsNavNodeEntry;LatestProductsNavNode;LatestProductsLink;
+
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;target(code)[default='sameWindow']
+                              ;;LatestProductsLink;LatestProductsLink;/latestProductsPage;LatestProductsLink;
+
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
+                        ;;LatestProductsNavNode;"latestProducts"
+
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=en]
+                       ;;LatestProductsLink;"latestProducts"

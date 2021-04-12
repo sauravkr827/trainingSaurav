@@ -1,0 +1,36 @@
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
+
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid,$contentCV);&nodeRef;children(uid,$contentCV);links(&linkRef)
+                               ;ManufacturerChildNavNode;;Manufacturer Nav Node;ManufacturerNavNode;ManufacturerChildNavNode;manufacturerRegNode,manufacturerListNode,manufacturerPaginationNode
+
+
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;&nodeRef;links(&linkRef)
+                               ;manufacturerRegNode;;manufacturer reg link ;manufacturerRegNode
+                               ;manufacturerListNode;;manufacturer list link ;manufacturerListNode
+                               ;manufacturerPaginationNode;;manufacturer pagination link;manufacturerPaginationNode
+
+
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
+                                ;manufacturerRegNodeEntery;;Manufacturer Reg Entery;manufacturerRegNode;ManufacturerRegLink;
+                                ;manufacturerListNodeEntery;;Manufactruer list Entery;manufacturerListNode;ManufactruerListLink;
+                                ;manufacturerPaginationNodeEntery;;Manufactruer Pagination Entery;manufacturerPaginationNode;ManufactruerPaginationLink;
+
+
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;target(code)[default='sameWindow'];;
+                              ;;ManufacturerRegLink;Manufacturer reg Link;/add;;;;
+                              ;;ManufactruerListLink;Manufacturer list Link;/listOfManufacturerDetails;;;;
+                              ;;ManufactruerPaginationLink;Manufacturer pagination Link;/paginationApi/{0};;;;
+
+
+INSERT_UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
+                               ;;manufacturerRegNode;"Manufacturer Reg"
+                               ;;manufacturerListNode;"Manufacturer List"
+                               ;;manufacturerPaginationNode;"Manufacturer Pagination"
+
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=en]
+                       ;;ManufacturerRegLink;"Manufacturer Reg"
+                       ;;ManufactruerListLink;"Manufacturer List"
+                       ;;ManufactruerPaginationLink;"Manufacturer Pagination"
+

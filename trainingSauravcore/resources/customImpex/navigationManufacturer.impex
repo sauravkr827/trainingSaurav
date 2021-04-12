@@ -1,0 +1,21 @@
+
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
+
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid,$contentCV);links(&linkRef);&nodeRef
+                               ;ManufacturerNavNode;;Manufacturer Nav Node;ElectronicsCategoryNavNode;;ManufacturerNavNode
+
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
+                                ;ManufacturerNavNodeEntry;;Manufacturer Nav Node Entry;ManufacturerNavNode;ManufacturerLink;
+
+
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;target(code)[default='sameWindow'];;
+                              ;;ManufacturerLink;Manufacturer Link;/add;;;;
+
+
+INSERT_UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
+                               ;;ManufacturerNavNode;"ManufacturerDetails"
+
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=en]
+                       ;;ManufacturerLink;"ManufacturerDetails"

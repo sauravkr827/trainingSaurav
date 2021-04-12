@@ -91,7 +91,7 @@ public class ManufacturerDetailsController {
         return ControllerConstants.Views.Pages.ManufacturerDetails.pagination;
     }
 
-    @RequestMapping(value = "/reg", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/reg", method = RequestMethod.GET)
     public String getDataByUser(Model model) {
         model.addAttribute("model", new ManufacturerDetailsCommand());
 
@@ -113,7 +113,7 @@ public class ManufacturerDetailsController {
         model.addAttribute("msg", msg);
 
         return ControllerConstants.Views.Pages.ManufacturerDetails.form;
-    }
+    }*/
 
     @RequestMapping("/removeId/{id}")
     public String removeData(@PathVariable("id") int id, Model model) {

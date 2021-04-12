@@ -1,5 +1,6 @@
 package de.hybris.trainingSaurav.core.customService.impl;
 
+import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.trainingSaurav.core.customDao.impl.DefaultManufacturerDetaillsDao;
 import de.hybris.trainingSaurav.core.customService.ManufacturerDetailsService;
 import de.hybris.trainingSaurav.core.model.ManufacturerDetailsModel;
@@ -42,7 +43,10 @@ public class DefaultManufacturerDetailsService implements ManufacturerDetailsSer
         return getManufacturerDetaillsDao().paginationOrderByDesc(currentPage);
     }
 
-
+    @Override
+    public List<ProductModel> getProductData(int noOfProduct) {
+        return getManufacturerDetaillsDao().getProductData(noOfProduct);
+    }
 
 
     public DefaultManufacturerDetaillsDao getManufacturerDetaillsDao() {

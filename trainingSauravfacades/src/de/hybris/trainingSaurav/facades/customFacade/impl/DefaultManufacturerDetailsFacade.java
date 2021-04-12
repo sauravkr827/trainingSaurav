@@ -1,15 +1,25 @@
 package de.hybris.trainingSaurav.facades.customFacade.impl;
 
+import de.hybris.platform.acceleratorservices.dataexport.googlelocal.converter.ProductConverter;
+import de.hybris.platform.commercefacades.product.ProductOption;
+import de.hybris.platform.commercefacades.product.data.ProductData;
+import de.hybris.platform.commercefacades.product.impl.DefaultProductFacade;
+import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
 import de.hybris.trainingSaurav.core.customService.impl.DefaultManufacturerDetailsService;
 import de.hybris.trainingSaurav.core.model.ManufacturerDetailsModel;
 import de.hybris.trainingSaurav.facades.customFacade.ManufacturerDetailsFacade;
 import de.hybris.trainingSaurav.facades.product.data.ManufacturerDetailsData;
+import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
-public class DefaultManufacturerDetailsFacade implements ManufacturerDetailsFacade {
+public class DefaultManufacturerDetailsFacade extends DefaultProductFacade implements ManufacturerDetailsFacade {
 
+    Logger logger=Logger.getLogger(DefaultManufacturerDetailsFacade.class);
     DefaultManufacturerDetailsService manufacturerDetailsService;
     Converter<ManufacturerDetailsModel,ManufacturerDetailsData> manufacturerDetailsDataConverter;
 
@@ -60,6 +70,27 @@ public class DefaultManufacturerDetailsFacade implements ManufacturerDetailsFaca
         return manufacturerDetailsData;
     }
 
+    @Override
+    public List<ProductData> getProductData(int noOfProduct) {
+
+        List<ProductModel> modelList=getManufacturerDetailsService().getProductData(noOfProduct);
+
+        List<ProductData> productDataList = new ArrayList<>();
+        final List<ProductOption> options = new ArrayList(Arrays.asList( ProductOption.URL, ProductOption.PRICE,ProductOption.IMAGES,ProductOption.DESCRIPTION,ProductOption.BASIC));
+        for(ProductModel productModel:modelList){
+
+            productDataList.add( getProductForCodeAndOptions(productModel.getCode(),options));
+
+        }
+
+        return productDataList;
+    }
+
+    @Override
+    public ProductData getProductForCodeAndOptions(String code, Collection collection) {
+        return super.getProductForCodeAndOptions(code, collection);
+    }
+
     public DefaultManufacturerDetailsService getManufacturerDetailsService() {
         return manufacturerDetailsService;
     }
@@ -75,4 +106,6 @@ public class DefaultManufacturerDetailsFacade implements ManufacturerDetailsFaca
     public void setManufacturerDetailsDataConverter(Converter<ManufacturerDetailsModel, ManufacturerDetailsData> manufacturerDetailsDataConverter) {
         this.manufacturerDetailsDataConverter = manufacturerDetailsDataConverter;
     }
+
+
 }

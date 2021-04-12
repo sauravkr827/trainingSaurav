@@ -53,6 +53,15 @@ public class DefaultManufacturerDetailsCommandService implements ManufacturerDet
     }
 
 
+  /*  @Override
+    public String saveData(ManufacturerDetailsModel manufacturerDetailsModel){
+
+        modelService.save(manufacturerDetailsModel);    // save successful - all validate interceptors are disabled
+
+        return "Data inserted Succussfully";
+    }*/
+
+
 
 
 

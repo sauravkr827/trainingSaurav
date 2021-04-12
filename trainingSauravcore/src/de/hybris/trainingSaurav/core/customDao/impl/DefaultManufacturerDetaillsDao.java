@@ -1,5 +1,6 @@
 package de.hybris.trainingSaurav.core.customDao.impl;
 
+import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.core.servicelayer.data.SearchPageData;
 import de.hybris.platform.servicelayer.model.ModelService;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
@@ -137,6 +138,29 @@ public class DefaultManufacturerDetaillsDao implements ManufacturerDetailsDao {
         SearchPageData<ManufacturerDetailsModel>searchPageData1=getPaginatedFlexibleSearchService().search(parameter);
         return searchPageData1.getResults();
     }
+
+
+    /*Product Data*/
+    @Override
+    public List<ProductModel> getProductData(int noOfProduct) {
+
+
+        String query="SELECT{"+ProductModel.PK+"} FROM {"+ProductModel._TYPECODE+"}";
+
+        final FlexibleSearchQuery fquery = new FlexibleSearchQuery(query);
+
+        fquery.setCount(noOfProduct);
+
+        SearchResult<ProductModel> searchResult=getFlexibleSearchService().search(fquery);
+
+        return searchResult.getResult();
+    }
+
+
+
+
+
+
 
     public FlexibleSearchService getFlexibleSearchService() {
         return flexibleSearchService;

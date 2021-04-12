@@ -1,0 +1,22 @@
+$contentCatalog=electronicsContentCatalog
+$contentCatalogName=Electronics Content Catalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$lang=en
+
+
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;content[lang=$lang];;
+                                ;;CMSParagraphComponent;Latest Products Component;CMSParagraphComponent;A product can be a service or an item. It can be physical or in virtual or cyber form. Every product is made at a cost and each is sold at a price. The price that can be charged depends on the market, the quality, the marketing and the segment that is targeted.;;
+
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='LatestProductsTemplate'];validComponentTypes(code);compTypeGroup(code)
+                             ;CMSParagraphSlotName;;CMSParagraphComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
+                         ;;CMSParagraphContentSlot;CMS Paragraph Slot;true;CMSParagraphComponent
+
+
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='latestProductsPage'];contentSlot(uid,$contentCV)[unique=true]
+                                ;;CMSParagraphforpage;content;;CMSParagraphContentSlot
+
+
+

@@ -36,6 +36,13 @@
 </center>
 
 <br>
-<button> <a href="pagination/0"/>1 </button>
+<button> <a href="paginationApi/0"/>1 </button>
+<button> <a href="paginationApi/1"/>2 </button>
+<button> <a href="paginationApi/2"/>3 </button>
+<button> <a href="paginationApi/3"/>4 </button>
+<button> <a href="paginationApi/4"/>5 </button>
+<button> <a href="paginationApi/5"/>6 </button>
+<button> <a href="paginationApi/6"/>7 </button>
+<button> <a href="paginationApi/7"/>8 </button>
 </body>
 </html>

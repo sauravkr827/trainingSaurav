@@ -16,6 +16,7 @@ import de.hybris.platform.acceleratorcms.model.components.SimpleResponsiveBanner
 import de.hybris.platform.acceleratorcms.model.components.SubCategoryListComponentModel;
 import de.hybris.platform.cms2.model.contents.components.CMSLinkComponentModel;
 import de.hybris.platform.cms2lib.model.components.ProductCarouselComponentModel;
+import de.hybris.trainingSaurav.core.model.LatestProductComponentModel;
 
 
 /**
@@ -33,6 +34,9 @@ public interface ControllerConstants
 		{
 			String _Prefix = "/view/"; // NOSONAR
 			String _Suffix = "Controller"; // NOSONAR
+
+			String LatestProductComponent = _Prefix +LatestProductComponentModel._TYPECODE + _Suffix;
+
 
 			/**
 			 * Default CMS component controller
@@ -66,6 +70,7 @@ public interface ControllerConstants
 		interface Cms // NOSONAR
 		{
 			String ComponentPrefix = "cms/"; // NOSONAR
+
 		}
 
 		interface Pages
@@ -167,7 +172,10 @@ public interface ControllerConstants
 				String update="pages/customManufacturer/update";
 				String customer="pages/customManufacturer/customerList";
 				String customerList="pages/customManufacturer/existingCustomerList";
+				String msg="pages/test/b";
 			}
+
+
 		}
 
 		interface Fragments

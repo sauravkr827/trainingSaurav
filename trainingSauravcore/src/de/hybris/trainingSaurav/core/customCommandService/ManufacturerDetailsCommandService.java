@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ManufacturerDetailsCommandService
 {
-    public String saveData(ManufacturerDetailsModel manufacturerDetailsModel)throws InterceptorException;
+    public String saveData(ManufacturerDetailsModel manufacturerDetailsModel)throws InterceptorException ;
     public String removeData(int id);
 
 
