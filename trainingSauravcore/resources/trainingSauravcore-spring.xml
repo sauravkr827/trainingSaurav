@@ -159,6 +159,16 @@
 	</bean>
 
 
+	<bean id="productManuResolver" class="de.hybris.trainingSaurav.core.customValueProvider.ProductManufacturerValueResolver"
+		  parent="abstractValueResolver">
+		<property name="qualifierProvider" ref="languageQualifierProvider" />
+	</bean>
+
+
+
+
+
+
 	<bean id="electronicsCategorySource" parent="abstractCategorySource">
 		<property name="rootCategory" value="1"/>
 		<!-- '1' is the root icecat category -->

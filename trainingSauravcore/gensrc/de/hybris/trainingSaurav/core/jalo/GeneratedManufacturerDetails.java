@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Apr 8, 2021, 8:04:38 PM                     ---
+ * --- Generated at Apr 15, 2021, 12:18:44 PM                   ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -9,12 +9,19 @@
 package de.hybris.trainingSaurav.core.jalo;
 
 import de.hybris.platform.jalo.GenericItem;
+import de.hybris.platform.jalo.Item;
 import de.hybris.platform.jalo.Item.AttributeMode;
 import de.hybris.platform.jalo.SessionContext;
 import de.hybris.platform.jalo.c2l.Country;
+import de.hybris.platform.jalo.product.Product;
+import de.hybris.platform.jalo.type.ComposedType;
+import de.hybris.platform.jalo.type.TypeManager;
+import de.hybris.platform.util.Utilities;
 import de.hybris.trainingSaurav.core.constants.TrainingSauravCoreConstants;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,6 +38,13 @@ public abstract class GeneratedManufacturerDetails extends GenericItem
 	public static final String CITY = "city";
 	/** Qualifier of the <code>ManufacturerDetails.country</code> attribute **/
 	public static final String COUNTRY = "country";
+	/** Qualifier of the <code>ManufacturerDetails.product</code> attribute **/
+	public static final String PRODUCT = "product";
+	/** Relation ordering override parameter constants for ManufacturerToProduct from ((trainingSauravcore))*/
+	protected static String MANUFACTURERTOPRODUCT_SRC_ORDERED = "relation.ManufacturerToProduct.source.ordered";
+	protected static String MANUFACTURERTOPRODUCT_TGT_ORDERED = "relation.ManufacturerToProduct.target.ordered";
+	/** Relation disable markmodifed parameter constants for ManufacturerToProduct from ((trainingSauravcore))*/
+	protected static String MANUFACTURERTOPRODUCT_MARKMODIFIED = "relation.ManufacturerToProduct.markmodified";
 	protected static final Map<String, AttributeMode> DEFAULT_INITIAL_ATTRIBUTES;
 	static
 	{
@@ -193,6 +207,21 @@ public abstract class GeneratedManufacturerDetails extends GenericItem
 	}
 	
 	/**
+	 * @deprecated since 2105, use {@link Utilities#getMarkModifiedOverride(de.hybris.platform.jalo.type.RelationType)
+	 */
+	@Override
+	@Deprecated(since = "2105", forRemoval = true)
+	public boolean isMarkModifiedDisabled(final Item referencedItem)
+	{
+		ComposedType relationSecondEnd0 = TypeManager.getInstance().getComposedType("Product");
+		if(relationSecondEnd0.isAssignableFrom(referencedItem.getComposedType()))
+		{
+			return Utilities.getMarkModifiedOverride(MANUFACTURERTOPRODUCT_MARKMODIFIED);
+		}
+		return true;
+	}
+	
+	/**
 	 * <i>Generated method</i> - Getter of the <code>ManufacturerDetails.name</code> attribute.
 	 * @return the name
 	 */
@@ -226,6 +255,130 @@ public abstract class GeneratedManufacturerDetails extends GenericItem
 	public void setName(final String value)
 	{
 		setName( getSession().getSessionContext(), value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>ManufacturerDetails.product</code> attribute.
+	 * @return the product
+	 */
+	public Collection<Product> getProduct(final SessionContext ctx)
+	{
+		final List<Product> items = getLinkedItems( 
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			"Product",
+			null,
+			false,
+			false
+		);
+		return items;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>ManufacturerDetails.product</code> attribute.
+	 * @return the product
+	 */
+	public Collection<Product> getProduct()
+	{
+		return getProduct( getSession().getSessionContext() );
+	}
+	
+	public long getProductCount(final SessionContext ctx)
+	{
+		return getLinkedItemsCount(
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			"Product",
+			null
+		);
+	}
+	
+	public long getProductCount()
+	{
+		return getProductCount( getSession().getSessionContext() );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>ManufacturerDetails.product</code> attribute. 
+	 * @param value the product
+	 */
+	public void setProduct(final SessionContext ctx, final Collection<Product> value)
+	{
+		setLinkedItems( 
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			null,
+			value,
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(MANUFACTURERTOPRODUCT_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>ManufacturerDetails.product</code> attribute. 
+	 * @param value the product
+	 */
+	public void setProduct(final Collection<Product> value)
+	{
+		setProduct( getSession().getSessionContext(), value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to product. 
+	 * @param value the item to add to product
+	 */
+	public void addToProduct(final SessionContext ctx, final Product value)
+	{
+		addLinkedItems( 
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(MANUFACTURERTOPRODUCT_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to product. 
+	 * @param value the item to add to product
+	 */
+	public void addToProduct(final Product value)
+	{
+		addToProduct( getSession().getSessionContext(), value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from product. 
+	 * @param value the item to remove from product
+	 */
+	public void removeFromProduct(final SessionContext ctx, final Product value)
+	{
+		removeLinkedItems( 
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(MANUFACTURERTOPRODUCT_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from product. 
+	 * @param value the item to remove from product
+	 */
+	public void removeFromProduct(final Product value)
+	{
+		removeFromProduct( getSession().getSessionContext(), value );
 	}
 	
 }

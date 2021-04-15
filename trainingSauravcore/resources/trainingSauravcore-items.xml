@@ -47,6 +47,21 @@
         <maptype code="MapIndex" argumenttype="java.lang.String" returntype="java.lang.String"/>
     </maptypes>
 
+    <relations>
+
+        <relation code="ManufacturerToProduct" localized="false" autocreate="true" generate="true">
+            <deployment table="ManufacturerToProduct" typecode="15552"/>
+            <sourceElement type="ManufacturerDetails" cardinality="many" qualifier="manufacturerDetails" ordered="false" >
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement type="Product" cardinality="many" qualifier="product" ordered="false" >
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+    </relations>
+
+
+
     <itemtypes>
 
         <!-- ManufacturerDetails -->
@@ -309,12 +324,17 @@
 
 
 
+        <typegroup name="custom">
 
-
-
-
-
-
+            <itemtype code="Product" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="customSEOKeyword" type="java.lang.String">
+                        <modifiers read="true" write="true" />
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+        </typegroup>
 
         <!-- TypeGroups are for structure of this file only -->
 

@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Apr 8, 2021, 8:04:38 PM                     ---
+ * --- Generated at Apr 15, 2021, 12:18:44 PM                   ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -46,6 +46,11 @@ public class GeneratedTrainingSauravCoreConstants
 			public static final String ISNEWBUSSINESSUSER = "isNewBussinessUser".intern();
 			public static final String ISNEWCUSTOMER = "isNewCustomer".intern();
 		}
+		public static class Product
+		{
+			public static final String CUSTOMSEOKEYWORD = "customSEOKeyword".intern();
+			public static final String MANUFACTURERDETAILS = "manufacturerDetails".intern();
+		}
 	}
 	public static class Enumerations
 	{
@@ -69,6 +74,10 @@ public class GeneratedTrainingSauravCoreConstants
 			public static final String WHITE = "WHITE".intern();
 			public static final String YELLOW = "YELLOW".intern();
 		}
+	}
+	public static class Relations
+	{
+		public static final String MANUFACTURERTOPRODUCT = "ManufacturerToProduct".intern();
 	}
 	
 	protected GeneratedTrainingSauravCoreConstants()

@@ -1,23 +1,27 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Apr 8, 2021, 8:04:38 PM                     ---
+ * --- Generated at Apr 15, 2021, 12:18:44 PM                   ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
  */
 package de.hybris.trainingSaurav.core.jalo;
 
+import de.hybris.platform.jalo.GenericItem;
 import de.hybris.platform.jalo.Item;
 import de.hybris.platform.jalo.Item.AttributeMode;
 import de.hybris.platform.jalo.JaloBusinessException;
 import de.hybris.platform.jalo.JaloSystemException;
 import de.hybris.platform.jalo.SessionContext;
 import de.hybris.platform.jalo.extension.Extension;
+import de.hybris.platform.jalo.link.Link;
+import de.hybris.platform.jalo.product.Product;
 import de.hybris.platform.jalo.type.ComposedType;
 import de.hybris.platform.jalo.type.JaloGenericCreationException;
 import de.hybris.platform.jalo.user.Customer;
 import de.hybris.platform.jalo.user.User;
+import de.hybris.platform.util.Utilities;
 import de.hybris.trainingSaurav.core.constants.TrainingSauravCoreConstants;
 import de.hybris.trainingSaurav.core.jalo.ApparelProduct;
 import de.hybris.trainingSaurav.core.jalo.ApparelSizeVariantProduct;
@@ -36,8 +40,10 @@ import de.hybris.trainingSaurav.core.jalo.ManufacturerRemovalCronJob;
 import de.hybris.trainingSaurav.core.jalo.NendrasysComponent;
 import de.hybris.trainingSaurav.core.jalo.Saurav1;
 import de.hybris.trainingSaurav.core.jalo.TestMapEnumColl;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.training.core.jalo.CustomOffersComponent1;
 
@@ -47,6 +53,11 @@ import org.training.core.jalo.CustomOffersComponent1;
 @SuppressWarnings({"deprecation","unused","cast"})
 public abstract class GeneratedTrainingSauravCoreManager extends Extension
 {
+	/** Relation ordering override parameter constants for ManufacturerToProduct from ((trainingSauravcore))*/
+	protected static String MANUFACTURERTOPRODUCT_SRC_ORDERED = "relation.ManufacturerToProduct.source.ordered";
+	protected static String MANUFACTURERTOPRODUCT_TGT_ORDERED = "relation.ManufacturerToProduct.target.ordered";
+	/** Relation disable markmodifed parameter constants for ManufacturerToProduct from ((trainingSauravcore))*/
+	protected static String MANUFACTURERTOPRODUCT_MARKMODIFIED = "relation.ManufacturerToProduct.markmodified";
 	protected static final Map<String, Map<String, AttributeMode>> DEFAULT_INITIAL_ATTRIBUTES;
 	static
 	{
@@ -55,6 +66,9 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 		tmp.put("isNewCustomer", AttributeMode.INITIAL);
 		tmp.put("isNewBussinessUser", AttributeMode.INITIAL);
 		ttmp.put("de.hybris.platform.jalo.user.Customer", Collections.unmodifiableMap(tmp));
+		tmp = new HashMap<String, AttributeMode>();
+		tmp.put("customSEOKeyword", AttributeMode.INITIAL);
+		ttmp.put("de.hybris.platform.jalo.product.Product", Collections.unmodifiableMap(tmp));
 		DEFAULT_INITIAL_ATTRIBUTES = ttmp;
 	}
 	@Override
@@ -537,6 +551,42 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 		return createTestMapEnumColl( getSession().getSessionContext(), attributeValues );
 	}
 	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.customSEOKeyword</code> attribute.
+	 * @return the customSEOKeyword
+	 */
+	public String getCustomSEOKeyword(final SessionContext ctx, final Product item)
+	{
+		return (String)item.getProperty( ctx, TrainingSauravCoreConstants.Attributes.Product.CUSTOMSEOKEYWORD);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.customSEOKeyword</code> attribute.
+	 * @return the customSEOKeyword
+	 */
+	public String getCustomSEOKeyword(final Product item)
+	{
+		return getCustomSEOKeyword( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.customSEOKeyword</code> attribute. 
+	 * @param value the customSEOKeyword
+	 */
+	public void setCustomSEOKeyword(final SessionContext ctx, final Product item, final String value)
+	{
+		item.setProperty(ctx, TrainingSauravCoreConstants.Attributes.Product.CUSTOMSEOKEYWORD,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.customSEOKeyword</code> attribute. 
+	 * @param value the customSEOKeyword
+	 */
+	public void setCustomSEOKeyword(final Product item, final String value)
+	{
+		setCustomSEOKeyword( getSession().getSessionContext(), item, value );
+	}
+	
 	@Override
 	public String getName()
 	{
@@ -687,6 +737,130 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	public void setIsNewCustomer(final Customer item, final boolean value)
 	{
 		setIsNewCustomer( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.manufacturerDetails</code> attribute.
+	 * @return the manufacturerDetails
+	 */
+	public Collection<ManufacturerDetails> getManufacturerDetails(final SessionContext ctx, final Product item)
+	{
+		final List<ManufacturerDetails> items = item.getLinkedItems( 
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			"ManufacturerDetails",
+			null,
+			false,
+			false
+		);
+		return items;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.manufacturerDetails</code> attribute.
+	 * @return the manufacturerDetails
+	 */
+	public Collection<ManufacturerDetails> getManufacturerDetails(final Product item)
+	{
+		return getManufacturerDetails( getSession().getSessionContext(), item );
+	}
+	
+	public long getManufacturerDetailsCount(final SessionContext ctx, final Product item)
+	{
+		return item.getLinkedItemsCount(
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			"ManufacturerDetails",
+			null
+		);
+	}
+	
+	public long getManufacturerDetailsCount(final Product item)
+	{
+		return getManufacturerDetailsCount( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.manufacturerDetails</code> attribute. 
+	 * @param value the manufacturerDetails
+	 */
+	public void setManufacturerDetails(final SessionContext ctx, final Product item, final Collection<ManufacturerDetails> value)
+	{
+		item.setLinkedItems( 
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			null,
+			value,
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(MANUFACTURERTOPRODUCT_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.manufacturerDetails</code> attribute. 
+	 * @param value the manufacturerDetails
+	 */
+	public void setManufacturerDetails(final Product item, final Collection<ManufacturerDetails> value)
+	{
+		setManufacturerDetails( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to manufacturerDetails. 
+	 * @param value the item to add to manufacturerDetails
+	 */
+	public void addToManufacturerDetails(final SessionContext ctx, final Product item, final ManufacturerDetails value)
+	{
+		item.addLinkedItems( 
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(MANUFACTURERTOPRODUCT_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to manufacturerDetails. 
+	 * @param value the item to add to manufacturerDetails
+	 */
+	public void addToManufacturerDetails(final Product item, final ManufacturerDetails value)
+	{
+		addToManufacturerDetails( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from manufacturerDetails. 
+	 * @param value the item to remove from manufacturerDetails
+	 */
+	public void removeFromManufacturerDetails(final SessionContext ctx, final Product item, final ManufacturerDetails value)
+	{
+		item.removeLinkedItems( 
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.MANUFACTURERTOPRODUCT,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(MANUFACTURERTOPRODUCT_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from manufacturerDetails. 
+	 * @param value the item to remove from manufacturerDetails
+	 */
+	public void removeFromManufacturerDetails(final Product item, final ManufacturerDetails value)
+	{
+		removeFromManufacturerDetails( getSession().getSessionContext(), item, value );
 	}
 	
 }
