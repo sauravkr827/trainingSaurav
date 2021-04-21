@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Apr 15, 2021, 12:18:44 PM                   ---
+ * --- Generated at Apr 20, 2021, 11:40:09 AM                   ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -14,13 +14,17 @@ import de.hybris.platform.jalo.Item.AttributeMode;
 import de.hybris.platform.jalo.JaloBusinessException;
 import de.hybris.platform.jalo.JaloSystemException;
 import de.hybris.platform.jalo.SessionContext;
+import de.hybris.platform.jalo.enumeration.EnumerationValue;
 import de.hybris.platform.jalo.extension.Extension;
 import de.hybris.platform.jalo.link.Link;
 import de.hybris.platform.jalo.product.Product;
+import de.hybris.platform.jalo.security.PrincipalGroup;
 import de.hybris.platform.jalo.type.ComposedType;
 import de.hybris.platform.jalo.type.JaloGenericCreationException;
 import de.hybris.platform.jalo.user.Customer;
 import de.hybris.platform.jalo.user.User;
+import de.hybris.platform.jalo.user.UserGroup;
+import de.hybris.platform.solrfacetsearch.jalo.config.SolrFacetSearchConfig;
 import de.hybris.platform.util.Utilities;
 import de.hybris.trainingSaurav.core.constants.TrainingSauravCoreConstants;
 import de.hybris.trainingSaurav.core.jalo.ApparelProduct;
@@ -53,6 +57,11 @@ import org.training.core.jalo.CustomOffersComponent1;
 @SuppressWarnings({"deprecation","unused","cast"})
 public abstract class GeneratedTrainingSauravCoreManager extends Extension
 {
+	/** Relation ordering override parameter constants for SolrfacetSearchRelationUserGroup from ((trainingSauravcore))*/
+	protected static String SOLRFACETSEARCHRELATIONUSERGROUP_SRC_ORDERED = "relation.SolrfacetSearchRelationUserGroup.source.ordered";
+	protected static String SOLRFACETSEARCHRELATIONUSERGROUP_TGT_ORDERED = "relation.SolrfacetSearchRelationUserGroup.target.ordered";
+	/** Relation disable markmodifed parameter constants for SolrfacetSearchRelationUserGroup from ((trainingSauravcore))*/
+	protected static String SOLRFACETSEARCHRELATIONUSERGROUP_MARKMODIFIED = "relation.SolrfacetSearchRelationUserGroup.markmodified";
 	/** Relation ordering override parameter constants for ManufacturerToProduct from ((trainingSauravcore))*/
 	protected static String MANUFACTURERTOPRODUCT_SRC_ORDERED = "relation.ManufacturerToProduct.source.ordered";
 	protected static String MANUFACTURERTOPRODUCT_TGT_ORDERED = "relation.ManufacturerToProduct.target.ordered";
@@ -63,6 +72,9 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	{
 		final Map<String, Map<String, AttributeMode>> ttmp = new HashMap();
 		Map<String, AttributeMode> tmp = new HashMap<String, AttributeMode>();
+		tmp.put("userPriceGroup", AttributeMode.INITIAL);
+		ttmp.put("de.hybris.platform.solrfacetsearch.jalo.config.SolrFacetSearchConfig", Collections.unmodifiableMap(tmp));
+		tmp = new HashMap<String, AttributeMode>();
 		tmp.put("isNewCustomer", AttributeMode.INITIAL);
 		tmp.put("isNewBussinessUser", AttributeMode.INITIAL);
 		ttmp.put("de.hybris.platform.jalo.user.Customer", Collections.unmodifiableMap(tmp));
@@ -861,6 +873,290 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	public void removeFromManufacturerDetails(final Product item, final ManufacturerDetails value)
 	{
 		removeFromManufacturerDetails( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>UserGroup.solrFacetSearchConfig</code> attribute.
+	 * @return the solrFacetSearchConfig
+	 */
+	public List<SolrFacetSearchConfig> getSolrFacetSearchConfig(final SessionContext ctx, final UserGroup item)
+	{
+		final List<SolrFacetSearchConfig> items = item.getLinkedItems( 
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			"SolrFacetSearchConfig",
+			null,
+			false,
+			false
+		);
+		return items;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>UserGroup.solrFacetSearchConfig</code> attribute.
+	 * @return the solrFacetSearchConfig
+	 */
+	public List<SolrFacetSearchConfig> getSolrFacetSearchConfig(final UserGroup item)
+	{
+		return getSolrFacetSearchConfig( getSession().getSessionContext(), item );
+	}
+	
+	public long getSolrFacetSearchConfigCount(final SessionContext ctx, final UserGroup item)
+	{
+		return item.getLinkedItemsCount(
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			"SolrFacetSearchConfig",
+			null
+		);
+	}
+	
+	public long getSolrFacetSearchConfigCount(final UserGroup item)
+	{
+		return getSolrFacetSearchConfigCount( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>UserGroup.solrFacetSearchConfig</code> attribute. 
+	 * @param value the solrFacetSearchConfig
+	 */
+	public void setSolrFacetSearchConfig(final SessionContext ctx, final UserGroup item, final List<SolrFacetSearchConfig> value)
+	{
+		item.setLinkedItems( 
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			null,
+			value,
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(SOLRFACETSEARCHRELATIONUSERGROUP_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>UserGroup.solrFacetSearchConfig</code> attribute. 
+	 * @param value the solrFacetSearchConfig
+	 */
+	public void setSolrFacetSearchConfig(final UserGroup item, final List<SolrFacetSearchConfig> value)
+	{
+		setSolrFacetSearchConfig( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to solrFacetSearchConfig. 
+	 * @param value the item to add to solrFacetSearchConfig
+	 */
+	public void addToSolrFacetSearchConfig(final SessionContext ctx, final UserGroup item, final SolrFacetSearchConfig value)
+	{
+		item.addLinkedItems( 
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(SOLRFACETSEARCHRELATIONUSERGROUP_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to solrFacetSearchConfig. 
+	 * @param value the item to add to solrFacetSearchConfig
+	 */
+	public void addToSolrFacetSearchConfig(final UserGroup item, final SolrFacetSearchConfig value)
+	{
+		addToSolrFacetSearchConfig( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from solrFacetSearchConfig. 
+	 * @param value the item to remove from solrFacetSearchConfig
+	 */
+	public void removeFromSolrFacetSearchConfig(final SessionContext ctx, final UserGroup item, final SolrFacetSearchConfig value)
+	{
+		item.removeLinkedItems( 
+			ctx,
+			false,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(SOLRFACETSEARCHRELATIONUSERGROUP_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from solrFacetSearchConfig. 
+	 * @param value the item to remove from solrFacetSearchConfig
+	 */
+	public void removeFromSolrFacetSearchConfig(final UserGroup item, final SolrFacetSearchConfig value)
+	{
+		removeFromSolrFacetSearchConfig( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>SolrFacetSearchConfig.userGroup</code> attribute.
+	 * @return the userGroup
+	 */
+	public List<UserGroup> getUserGroup(final SessionContext ctx, final SolrFacetSearchConfig item)
+	{
+		final List<UserGroup> items = item.getLinkedItems( 
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			"UserGroup",
+			null,
+			false,
+			false
+		);
+		return items;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>SolrFacetSearchConfig.userGroup</code> attribute.
+	 * @return the userGroup
+	 */
+	public List<UserGroup> getUserGroup(final SolrFacetSearchConfig item)
+	{
+		return getUserGroup( getSession().getSessionContext(), item );
+	}
+	
+	public long getUserGroupCount(final SessionContext ctx, final SolrFacetSearchConfig item)
+	{
+		return item.getLinkedItemsCount(
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			"UserGroup",
+			null
+		);
+	}
+	
+	public long getUserGroupCount(final SolrFacetSearchConfig item)
+	{
+		return getUserGroupCount( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>SolrFacetSearchConfig.userGroup</code> attribute. 
+	 * @param value the userGroup
+	 */
+	public void setUserGroup(final SessionContext ctx, final SolrFacetSearchConfig item, final List<UserGroup> value)
+	{
+		item.setLinkedItems( 
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			null,
+			value,
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(SOLRFACETSEARCHRELATIONUSERGROUP_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>SolrFacetSearchConfig.userGroup</code> attribute. 
+	 * @param value the userGroup
+	 */
+	public void setUserGroup(final SolrFacetSearchConfig item, final List<UserGroup> value)
+	{
+		setUserGroup( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to userGroup. 
+	 * @param value the item to add to userGroup
+	 */
+	public void addToUserGroup(final SessionContext ctx, final SolrFacetSearchConfig item, final UserGroup value)
+	{
+		item.addLinkedItems( 
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(SOLRFACETSEARCHRELATIONUSERGROUP_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to userGroup. 
+	 * @param value the item to add to userGroup
+	 */
+	public void addToUserGroup(final SolrFacetSearchConfig item, final UserGroup value)
+	{
+		addToUserGroup( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from userGroup. 
+	 * @param value the item to remove from userGroup
+	 */
+	public void removeFromUserGroup(final SessionContext ctx, final SolrFacetSearchConfig item, final UserGroup value)
+	{
+		item.removeLinkedItems( 
+			ctx,
+			true,
+			TrainingSauravCoreConstants.Relations.SOLRFACETSEARCHRELATIONUSERGROUP,
+			null,
+			Collections.singletonList(value),
+			false,
+			false,
+			Utilities.getMarkModifiedOverride(SOLRFACETSEARCHRELATIONUSERGROUP_MARKMODIFIED)
+		);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from userGroup. 
+	 * @param value the item to remove from userGroup
+	 */
+	public void removeFromUserGroup(final SolrFacetSearchConfig item, final UserGroup value)
+	{
+		removeFromUserGroup( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>SolrFacetSearchConfig.userPriceGroup</code> attribute.
+	 * @return the userPriceGroup
+	 */
+	public EnumerationValue getUserPriceGroup(final SessionContext ctx, final SolrFacetSearchConfig item)
+	{
+		return (EnumerationValue)item.getProperty( ctx, TrainingSauravCoreConstants.Attributes.SolrFacetSearchConfig.USERPRICEGROUP);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>SolrFacetSearchConfig.userPriceGroup</code> attribute.
+	 * @return the userPriceGroup
+	 */
+	public EnumerationValue getUserPriceGroup(final SolrFacetSearchConfig item)
+	{
+		return getUserPriceGroup( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>SolrFacetSearchConfig.userPriceGroup</code> attribute. 
+	 * @param value the userPriceGroup
+	 */
+	public void setUserPriceGroup(final SessionContext ctx, final SolrFacetSearchConfig item, final EnumerationValue value)
+	{
+		item.setProperty(ctx, TrainingSauravCoreConstants.Attributes.SolrFacetSearchConfig.USERPRICEGROUP,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>SolrFacetSearchConfig.userPriceGroup</code> attribute. 
+	 * @param value the userPriceGroup
+	 */
+	public void setUserPriceGroup(final SolrFacetSearchConfig item, final EnumerationValue value)
+	{
+		setUserPriceGroup( getSession().getSessionContext(), item, value );
 	}
 	
 }

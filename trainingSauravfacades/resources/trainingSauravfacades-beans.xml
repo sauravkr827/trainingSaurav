@@ -40,4 +40,15 @@
 	<bean class="de.hybris.platform.commercefacades.user.data.RegisterData">
 		<property name="isNewBussinessUser" type="Boolean"/>
 	</bean>
+
+
+	<bean class="de.hybris.platform.solrfacetsearch.config.IndexConfig">
+		<property name="userPriceGroup" type="de.hybris.platform.europe1.enums.UserPriceGroup"/>
+	</bean>
+
+
+	<bean class="de.hybris.platform.solrfacetsearch.config.IndexConfig">
+	<property name="userGroup" type="java.util.List&lt;de.hybris.platform.core.model.user.UserGroupModel>"/>
+    </bean>
+
 </beans>

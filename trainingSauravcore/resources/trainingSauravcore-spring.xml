@@ -101,11 +101,11 @@
 
 
 
-	<bean id="loadVoidInterceptorMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+	<!--<bean id="loadVoidInterceptorMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
 		<property name="interceptor" ref="VoidInterceptor"/>
 		<property name="typeCode" value="ManufacturerDetails"/>
 		<property name="replacedInterceptors" ref="manufacturerDetailsloadInterceptor"/>
-	</bean>
+	</bean>-->
 
 
 <!--	<bean id="customerPrepareInterceptor" class="de.hybris.trainingSaurav.core.customeInterceptor.Customer1PrepareInterceptor"/>
@@ -161,9 +161,21 @@
 
 	<bean id="productManuResolver" class="de.hybris.trainingSaurav.core.customValueProvider.ProductManufacturerValueResolver"
 		  parent="abstractValueResolver">
-		<property name="qualifierProvider" ref="languageQualifierProvider" />
 	</bean>
 
+
+
+	<bean id="customUsrGrpQualifier" class="de.hybris.trainingSaurav.core.customQualifierProvider.CustomUserPriceGroupQualifierProvider">
+		<property name="commonI18NService" ref="commonI18NService"/>
+		<property name="sessionService" ref="sessionService"/>
+	</bean>
+
+
+	<bean id="customUsrPrcGrpResolver" class="de.hybris.trainingSaurav.core.customValueProvider.UserPriceGroupValueResolver"
+		  parent="abstractValueResolver">
+		<property name="qualifierProvider" ref="customUsrGrpQualifier" />
+		<property name="priceService" ref="priceService" />
+	</bean>
 
 
 

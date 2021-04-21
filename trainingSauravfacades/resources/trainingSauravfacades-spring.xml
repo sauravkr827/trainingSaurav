@@ -48,6 +48,16 @@
 	</bean>
 
 
+
+	<bean id="customUsrPrcGrpPopulator" class="de.hybris.trainingSaurav.facades.customPopulator.CustomUserPriceGroupPopulator"/>
+	<bean parent="modifyPopulatorList">
+		<property name="list" ref="solrIndexConfigConverter"/>
+		<property name="add" ref="customUsrPrcGrpPopulator"/>
+	</bean>
+
+
+
+
 	<alias name="defaultCustomCustomerFacade" alias="customCustomerFacade"/>
 	<bean id="defaultCustomCustomerFacade" class="de.hybris.trainingSaurav.facades.customFacade.impl.DefaultCustomCustomerFacade" parent="defaultCustomerFacade">
 	</bean>

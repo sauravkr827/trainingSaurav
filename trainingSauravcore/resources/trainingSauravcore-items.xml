@@ -58,6 +58,16 @@
                 <modifiers read="true" write="true" search="true" optional="true"/>
             </targetElement>
         </relation>
+
+        <relation code="SolrfacetSearchRelationUserGroup" localized="false" autocreate="true" generate="true" >
+            <deployment table="SolrfacetToUserGroup" typecode="15562"/>
+            <sourceElement type="SolrFacetSearchConfig" cardinality="many" qualifier="solrFacetSearchConfig" ordered="false" collectiontype="list">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement type="UserGroup" cardinality="many" qualifier="userGroup" ordered="false" collectiontype="list">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
     </relations>
 
 
@@ -66,6 +76,20 @@
 
         <!-- ManufacturerDetails -->
         <typegroup name="custom">
+
+
+            <itemtype code="SolrFacetSearchConfig" generate="false" autocreate="false"
+                      jaloclass="de.hybris.platform.solrfacetsearch.jalo.config.SolrFacetSearchConfig">
+
+                <attributes>
+                    <attribute qualifier="userPriceGroup" type="UserPriceGroup">
+                        <modifiers write="true" read="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+
         <itemtype code="ManufacturerDetails" autocreate="true" generate="true">
             <deployment table="ManufacturerDetails" typecode="11000"/>
             <attributes>

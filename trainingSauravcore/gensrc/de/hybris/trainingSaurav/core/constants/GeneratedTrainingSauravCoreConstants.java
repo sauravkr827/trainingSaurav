@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Apr 15, 2021, 12:18:44 PM                   ---
+ * --- Generated at Apr 20, 2021, 11:40:09 AM                   ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -51,6 +51,15 @@ public class GeneratedTrainingSauravCoreConstants
 			public static final String CUSTOMSEOKEYWORD = "customSEOKeyword".intern();
 			public static final String MANUFACTURERDETAILS = "manufacturerDetails".intern();
 		}
+		public static class SolrFacetSearchConfig
+		{
+			public static final String USERGROUP = "userGroup".intern();
+			public static final String USERPRICEGROUP = "userPriceGroup".intern();
+		}
+		public static class UserGroup
+		{
+			public static final String SOLRFACETSEARCHCONFIG = "solrFacetSearchConfig".intern();
+		}
 	}
 	public static class Enumerations
 	{
@@ -78,6 +87,7 @@ public class GeneratedTrainingSauravCoreConstants
 	public static class Relations
 	{
 		public static final String MANUFACTURERTOPRODUCT = "ManufacturerToProduct".intern();
+		public static final String SOLRFACETSEARCHRELATIONUSERGROUP = "SolrfacetSearchRelationUserGroup".intern();
 	}
 	
 	protected GeneratedTrainingSauravCoreConstants()
