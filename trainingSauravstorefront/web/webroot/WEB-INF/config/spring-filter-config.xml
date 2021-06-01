@@ -74,6 +74,7 @@
 
 		<!-- filter to restore customer preferred location -->
 		<ref bean="customerLocationRestorationFilter"/>
+        <ref bean="myCustomFilter"/>
 
 	</util:list>
 	
@@ -172,6 +173,8 @@
 		<property name="guestCheckoutCartCleanStrategy"  ref="guestCheckoutCartCleanStrategy" />
 	</bean>
 
+
+
 	<bean id="customerLocationRestorationFilter" class="de.hybris.trainingSaurav.storefront.filters.CustomerLocationRestorationFilter" >
 		<property name="customerLocationFacade" ref="customerLocationFacade"/>
 		<property name="customerLocationCookieGenerator" ref="customerLocationCookieGenerator"/>
@@ -230,4 +233,21 @@
 	<bean id="importCSVMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="#{configurationService.configuration.getProperty('import.csv.max.upload.size.bytes')}" />
 	</bean>
+
+
+
+	<!--<bean id="myWebAppFilterChain" class="de.hybris.platform.servicelayer.web.PlatformFilterChain">
+		<constructor-arg>
+			<list>
+				<ref bean="myCustomFilter"/>
+				<ref bean="log4jFilter"/>
+
+				<ref bean="sessionFilter"/>
+			</list>
+		</constructor-arg>
+	</bean>-->
+
+	<bean id="myCustomFilter" class="de.hybris.trainingSaurav.storefront.customFilters.CustomFilterLogMsg">
+	</bean>
+
 </beans>

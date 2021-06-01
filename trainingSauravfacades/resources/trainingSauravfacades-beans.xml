@@ -6,6 +6,8 @@
 
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="genders" type="java.util.List&lt;de.hybris.trainingSaurav.facades.product.data.GenderData>"/>
+		<property name="manufacturerDetails"  type="java.util.List&lt;de.hybris.trainingSaurav.facades.product.data.ManufacturerDetailsData>"/>
+		<property name="manufacturerDetailsNamelist"  type="java.util.List&lt;String>"/>
 	</bean>
 
 	<bean class="de.hybris.trainingSaurav.facades.product.data.GenderData">
@@ -50,5 +52,13 @@
 	<bean class="de.hybris.platform.solrfacetsearch.config.IndexConfig">
 	<property name="userGroup" type="java.util.List&lt;de.hybris.platform.core.model.user.UserGroupModel>"/>
     </bean>
+
+
+    <bean class="de.hybris.platform.commercefacades.user.data.AddressData">
+        <property name="VATNumber" type="String"/>
+    </bean>
+
+
+
 
 </beans>

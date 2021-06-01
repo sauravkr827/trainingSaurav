@@ -12,3 +12,7 @@ $indexCurrencies=JPY,USD
 
 INSERT_UPDATE SolrIndexedProperty	;solrIndexedType(identifier)[unique=true]	;name[unique=true]			;type(code)	;localized[default=false]	;multiValue[default=false];fieldValueProvider
                                      ;$solrIndexedType							;manufacturerDetails        ;string		;true						;true					  ;productManuResolver
+
+
+INSERT_UPDATE SolrSearchQueryProperty ; indexedProperty(name, solrIndexedType(identifier))[unique=true] ; searchQueryTemplate(name, indexedType(identifier))[unique=true][default=DEFAULT:$solrIndexedType] ; facet ; ftsPhraseQuery[default=false] ; ftsPhraseQueryBoost ; ftsQuery[default=false] ; ftsQueryBoost ; ftsFuzzyQuery[default=false] ; ftsFuzzyQueryBoost ; ftsWildcardQuery[default=false] ; ftsWildcardQueryType(code)[default=POSTFIX] ; ftsWildcardQueryBoost ; ftsWildcardQueryMinTermLength ; includeInResponse[default=true] ; useForHighlighting[default=false]
+                                      ; manufacturerDetails:$solrIndexedType ; ; ; TRUE ; 80 ; TRUE ; 40 ; TRUE ; 20 ; ; ; ; ; ;

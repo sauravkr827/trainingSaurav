@@ -1,0 +1,32 @@
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+$picture=media(code, $contentCV);
+$lang=en
+
+$siteResource=jar:de.hybris.trainingSaurav.initialdata.setup.InitialDataSystemSetup&/trainingSauravinitialdata/import/sampledata/contentCatalogs
+$productCatalog=electronicsProductCatalog
+$productCatalogName=Electronics Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default=Online])[unique=true,default=$productCatalog:Online]
+$media=@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]
+
+# Create medias
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/png'];altText
+                   ;;hybrisImageTest;banner.png;$siteResource/images/banner.png;;Test Banner component;
+
+
+INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink
+                                   ;;TestBannerComponent;Test Banner Component;TestBannerComponent;
+
+
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+                            ;;TestBannerComponent;hybrisImageTest
+
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+
+                         ;;TestBannerComponentSlot;TestBannerComponent
+
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='add'];contentSlot(uid,$contentCV)[unique=true]
+                                ;;TestBannerComponentSlot-Same;testBanner;;TestBannerComponentSlot;true
+

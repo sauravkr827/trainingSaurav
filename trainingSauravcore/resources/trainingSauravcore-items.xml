@@ -358,6 +358,34 @@
                     </attribute>
                 </attributes>
             </itemtype>
+
+            <itemtype code="Product" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="canBeSold" type="java.lang.Boolean">
+                        <modifiers read="true" write="true"/>
+                        <persistence type="property"/>
+                        <defaultvalue>java.lang.Boolean.TRUE</defaultvalue>
+                        <model>
+                            <getter default="true" name="canBeSold">
+                                <nullDecorator>Boolean.valueOf(true)</nullDecorator>
+                            </getter>
+                        </model>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+
+        </typegroup>
+
+        <typegroup name="CustomAddress">
+            <itemtype code="Address" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="vatNumber" type="java.lang.String">
+                        <modifiers read="true" write="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
         </typegroup>
 
         <!-- TypeGroups are for structure of this file only -->

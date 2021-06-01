@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Apr 20, 2021, 11:40:09 AM                   ---
+ * --- Generated at May 21, 2021, 8:07:22 PM                    ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -41,6 +41,10 @@ public class GeneratedTrainingSauravCoreConstants
 	}
 	public static class Attributes
 	{
+		public static class Address
+		{
+			public static final String VATNUMBER = "vatNumber".intern();
+		}
 		public static class Customer
 		{
 			public static final String ISNEWBUSSINESSUSER = "isNewBussinessUser".intern();
@@ -48,6 +52,7 @@ public class GeneratedTrainingSauravCoreConstants
 		}
 		public static class Product
 		{
+			public static final String CANBESOLD = "canBeSold".intern();
 			public static final String CUSTOMSEOKEYWORD = "customSEOKeyword".intern();
 			public static final String MANUFACTURERDETAILS = "manufacturerDetails".intern();
 		}

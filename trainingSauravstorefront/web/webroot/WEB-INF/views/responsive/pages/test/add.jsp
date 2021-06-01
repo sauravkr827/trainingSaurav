@@ -10,4 +10,10 @@
 
     <jsp:include page="a.jsp"/>
 
+    <h1>sakkkkkkkkkkkkk</h1>
+
+    <cms:pageSlot position="testBanner" var="feature" element="div" class="span-24 section5 cms_disp-img_slot">
+        <cms:component component="${feature}" />
+    </cms:pageSlot>
+
 </template:page>

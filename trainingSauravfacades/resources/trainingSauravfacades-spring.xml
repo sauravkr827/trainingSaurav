@@ -50,10 +50,23 @@
 
 
 	<bean id="customUsrPrcGrpPopulator" class="de.hybris.trainingSaurav.facades.customPopulator.CustomUserPriceGroupPopulator"/>
+
 	<bean parent="modifyPopulatorList">
 		<property name="list" ref="solrIndexConfigConverter"/>
 		<property name="add" ref="customUsrPrcGrpPopulator"/>
 	</bean>
+
+
+
+
+
+	<alias name="customSearchResultPopulator" alias="commerceSearchResultProductPopulator"/>
+	<bean id="customSearchResultPopulator"
+		  class="de.hybris.trainingSaurav.facades.customPopulator.CustomSearchResultPopulator"
+		  parent="variantOptionsCommerceSearchResultProductPopulator">
+
+	</bean>
+
 
 
 

@@ -178,6 +178,25 @@
 	</bean>
 
 
+	<!--   ManufacturePLPProvider-->
+
+	<bean id="manufacturerPLPProvider" class="de.hybris.trainingSaurav.core.customValueProvider.ManufacturerPLPProvider"
+		  parent="abstractPropertyFieldValueProvider">
+		<property name="fieldNameProvider" ref="solrFieldNameProvider"/>
+	</bean>
+
+
+	<!--  ProductCanBeSold-->
+
+	<!--<alias name="canBeSoldMethodHook" alias="canBeSoldMethodHook1"/>
+	<bean id="canBeSoldMethodHook" class="de.hybris.trainingSaurav.core.customCanbeSold.CustomAddToCartMethodHook"/>
+
+	<bean id="canBeSoldMethodHookMergeDirective" depends-on="commerceAddToCartMethodHooks" parent="listMergeDirective">
+		<property name="add" ref="canBeSoldMethodHook"/>
+	</bean>-->
+
+	<bean id="customCanbeSold" class="de.hybris.trainingSaurav.core.customCanbeSold.CustomCanBeSold" parent="commerceAddToCartStrictStrategy"/>
+
 
 
 

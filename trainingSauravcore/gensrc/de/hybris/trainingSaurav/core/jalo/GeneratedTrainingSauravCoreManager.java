@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Apr 20, 2021, 11:40:09 AM                   ---
+ * --- Generated at May 21, 2021, 8:07:22 PM                    ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
@@ -21,6 +21,7 @@ import de.hybris.platform.jalo.product.Product;
 import de.hybris.platform.jalo.security.PrincipalGroup;
 import de.hybris.platform.jalo.type.ComposedType;
 import de.hybris.platform.jalo.type.JaloGenericCreationException;
+import de.hybris.platform.jalo.user.Address;
 import de.hybris.platform.jalo.user.Customer;
 import de.hybris.platform.jalo.user.User;
 import de.hybris.platform.jalo.user.UserGroup;
@@ -80,7 +81,11 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 		ttmp.put("de.hybris.platform.jalo.user.Customer", Collections.unmodifiableMap(tmp));
 		tmp = new HashMap<String, AttributeMode>();
 		tmp.put("customSEOKeyword", AttributeMode.INITIAL);
+		tmp.put("canBeSold", AttributeMode.INITIAL);
 		ttmp.put("de.hybris.platform.jalo.product.Product", Collections.unmodifiableMap(tmp));
+		tmp = new HashMap<String, AttributeMode>();
+		tmp.put("vatNumber", AttributeMode.INITIAL);
+		ttmp.put("de.hybris.platform.jalo.user.Address", Collections.unmodifiableMap(tmp));
 		DEFAULT_INITIAL_ATTRIBUTES = ttmp;
 	}
 	@Override
@@ -93,6 +98,79 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 			ret.putAll(attr);
 		}
 		return ret;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.canBeSold</code> attribute.
+	 * @return the canBeSold
+	 */
+	public Boolean isCanBeSold(final SessionContext ctx, final Product item)
+	{
+		return (Boolean)item.getProperty( ctx, TrainingSauravCoreConstants.Attributes.Product.CANBESOLD);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.canBeSold</code> attribute.
+	 * @return the canBeSold
+	 */
+	public Boolean isCanBeSold(final Product item)
+	{
+		return isCanBeSold( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.canBeSold</code> attribute. 
+	 * @return the canBeSold
+	 */
+	public boolean isCanBeSoldAsPrimitive(final SessionContext ctx, final Product item)
+	{
+		Boolean value = isCanBeSold( ctx,item );
+		return value != null ? value.booleanValue() : false;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.canBeSold</code> attribute. 
+	 * @return the canBeSold
+	 */
+	public boolean isCanBeSoldAsPrimitive(final Product item)
+	{
+		return isCanBeSoldAsPrimitive( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.canBeSold</code> attribute. 
+	 * @param value the canBeSold
+	 */
+	public void setCanBeSold(final SessionContext ctx, final Product item, final Boolean value)
+	{
+		item.setProperty(ctx, TrainingSauravCoreConstants.Attributes.Product.CANBESOLD,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.canBeSold</code> attribute. 
+	 * @param value the canBeSold
+	 */
+	public void setCanBeSold(final Product item, final Boolean value)
+	{
+		setCanBeSold( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.canBeSold</code> attribute. 
+	 * @param value the canBeSold
+	 */
+	public void setCanBeSold(final SessionContext ctx, final Product item, final boolean value)
+	{
+		setCanBeSold( ctx, item, Boolean.valueOf( value ) );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.canBeSold</code> attribute. 
+	 * @param value the canBeSold
+	 */
+	public void setCanBeSold(final Product item, final boolean value)
+	{
+		setCanBeSold( getSession().getSessionContext(), item, value );
 	}
 	
 	public ApparelProduct createApparelProduct(final SessionContext ctx, final Map attributeValues)
@@ -1157,6 +1235,42 @@ public abstract class GeneratedTrainingSauravCoreManager extends Extension
 	public void setUserPriceGroup(final SolrFacetSearchConfig item, final EnumerationValue value)
 	{
 		setUserPriceGroup( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Address.vatNumber</code> attribute.
+	 * @return the vatNumber
+	 */
+	public String getVatNumber(final SessionContext ctx, final Address item)
+	{
+		return (String)item.getProperty( ctx, TrainingSauravCoreConstants.Attributes.Address.VATNUMBER);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Address.vatNumber</code> attribute.
+	 * @return the vatNumber
+	 */
+	public String getVatNumber(final Address item)
+	{
+		return getVatNumber( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Address.vatNumber</code> attribute. 
+	 * @param value the vatNumber
+	 */
+	public void setVatNumber(final SessionContext ctx, final Address item, final String value)
+	{
+		item.setProperty(ctx, TrainingSauravCoreConstants.Attributes.Address.VATNUMBER,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Address.vatNumber</code> attribute. 
+	 * @param value the vatNumber
+	 */
+	public void setVatNumber(final Address item, final String value)
+	{
+		setVatNumber( getSession().getSessionContext(), item, value );
 	}
 	
 }

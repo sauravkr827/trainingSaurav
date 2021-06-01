@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Required;
 
 import java.util.*;
 
-public class CustomUserPriceGroupQualifierProvider implements QualifierProvider {
+public class  CustomUserPriceGroupQualifierProvider implements QualifierProvider {
 
   Logger logger=Logger.getLogger(CustomUserPriceGroupQualifierProvider.class);
 

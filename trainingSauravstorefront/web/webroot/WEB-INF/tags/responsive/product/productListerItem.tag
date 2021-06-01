@@ -42,9 +42,16 @@
 			</ycommerce:testId>
 		</div>
 
+
+
 		<c:if test="${not empty product.summary}">
 			<div class="product__listing--description">${ycommerce:sanitizeHTML(product.summary)}</div>
 		</c:if>
+        <c:if test="${not empty product.manufacturerDetailsNamelist}">
+			<font color="#1e90ff">Manufaturer Name: ${product.manufacturerDetailsNamelist} </font>
+		</c:if>
+
+
 
 
 
